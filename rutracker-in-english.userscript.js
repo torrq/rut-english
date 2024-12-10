@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rutracker in english
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Some english translations for rutracker's UI
 // @author       n
 // @match        https://rutracker.org/*
@@ -281,12 +281,15 @@
     };
 
     // Config for hiding elements (CSS selectors)
-    const hideElementsConfig = {
-        "div#main-nav > ul.ext-links": true, /* top right text ad */
-        "div#bn-top-right": true, /* top right banner ad */
-        "div#sidebar1_wrap > div.bn-idx": true, /* left sidebar ad */
-        "div#idx-sidebar2 > div.bn-idx": true /* right sidebar ad */
-    };
+    const hideElementsConfig = [
+        "div#main-nav > ul.ext-links", /* top right text ad */
+        "div#bn-top-right", /* top right banner ad */
+        "div#sidebar1_wrap > div.bn-idx", /* left sidebar ad */
+        "div#idx-sidebar2 > div.bn-idx", /* right sidebar ad */
+        "iframe#bn-top-block", /* top banner ad */
+        "div#page_footer > div.ext-links", /* bottom banner ad */
+        "div#nav-panel" /* just kind of pointless, buttons for page up and down on the left side of screen */
+    ];
 
     // Array of blocked image URLs
     const blockedImageSources = [
@@ -348,13 +351,11 @@
 
     // Function to hide elements
     function hideElements(selectors) {
-        Object.keys(selectors).forEach(selector => {
-            if (selectors[selector]) {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    element.style.setProperty("display", "none", "important");
-                });
-            }
+        selectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.style.setProperty("display", "none", "important");
+            });
         });
     }
 
