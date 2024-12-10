@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rutracker in english
 // @namespace    http://tampermonkey.net/
-// @version      1.7
+// @version      1.8
 // @description  Some english translations for rutracker's UI
 // @author       n
 // @match        https://rutracker.org/*
@@ -13,7 +13,57 @@
 
     /* Array of replacements: [original text, replacement text] */
     const replacements = {
-    /* Phrases */
+    /* Torrent descriptions */
+        "Формат записи": "Recording Format",
+        "Источник записи": "Recording Source",
+        "Наличие водяных знаков": "Presence of watermarks",
+        "Год издания": "Year of publication",
+        "переиздания диска": "reissue of the disc",
+        "Год editions": "Year editions",
+        "переeditions диска": "re-editions of the disc",
+        "Наличие сканов в содержимом раздачи": "Availability of scans in the distribution content",
+        "Наличие сканов": "Availability of scans",
+        "Только обложка альбома": "Only album cover",
+        "Тип рипа": "Type of rip",
+        "Количество каналов": "Number of channels",
+        "Лог проверки качества": "Quality check log",
+        "Последние поблагодарившие": "Last thanked",
+        "В разделе": "In the section",
+        "Опции показа": "Options",
+        "Версия для печати": "Print version",
+        "картинки званий": "pictures called",
+        "картинки в сообщениях": "pictures in messages",
+        "Добавить в": "Add to",
+        "спойлер открытым": "spoiler open",
+        "Об альбоме": "About the album",
+        "Сравнить с др. раздачей": "Compare with other distribution",
+        "Увел./умен. окно": "Increase/decrease window",
+        "месяц назад": "month ago",
+        "Год выпуска": "Year of issue",
+        "Страна-производитель": "Country of origin",
+        "скрытый текст": "hidden text",
+        "Спектр,АЧХ,УЗ": "Spectrum, frequency response, ultrasound",
+        "Программа-оцифровщик": "Digitizer program",
+        "Предварительный усилитель": "Pre-amp",
+        "Головка звукоснимателя": "Pickup head",
+        "Устройство воспроизведения": "Playback device",
+        "Код класса состояния винила": "Vinyl condition",
+        "Декликер": "Declicker",
+        "автором": "by the author",
+        "фильтр шума по образцу": "noise filter by sample",
+        "Как качать": "How to download",
+        "Покраснели раздачи": "Are the distributions red",
+        "Сетевое питание": "Network power supply",
+        "Спектр, АЧХ, Уровень": "Spectrum, Frequency Response, Level",
+        "разделение на треки": "Split into tracks",
+        "Вакуумная виниломойка": "Vacuum vinyl washer",
+        "редактором не чищу и не обрабатываю": "I don't use an editor to clean or process it",
+        "Содержание индексной карты": "Cuesheet",
+        "Уровень записи": "Recording level",
+        "Доп. информация": "Additional information",
+        /* Phrases */
+        "Знаменитости и кумиры": "Celebrities and idols",
+        "Музыкальная литература и Теория": "Music Literature and Theory",
         "Поиск по раздачам": "Search by distribution",
         "Перейти к разделу": "Go to section",
         "по разделу": "by section",
@@ -36,11 +86,11 @@
         "Духовные песнопения": "Spiritual chants",
         "Музыка разных жанров": "Music of different genres",
         "и многоканальная музыка": "and multi-channel",
-        "Классика и классика в современной обработке": "Classical & Modern Classical",
+        "Классика и классика в современной обработке": "Classical",
         "Классика в современной обработке": "Modern Classical",
         "Результатов поиска": "Search results",
         "Пополнить баланс Steam": "Top up your Steam balance",
-        "многоканальная музыка": "multi-channel music",
+        "многоканальная музыка": "multi-channel",
         "Конверсии SACD": "SACD Conversions",
         "Unofficial compilations and remasterings": "Unofficial remasters",
         "Манга (на иностранных языках)": "Manga (in foreign languages)",
@@ -51,7 +101,6 @@
         "за все время": "for all time",
         "Все имеющиеся": "All available",
         "Оркестровая музыка": "Orchestral music",
-        "Сборники зарубежного рок": "Collections of foreign rock",
         "Восточноазиатский": "East Asian rock",
         "Латиноамериканская": "Latin American",
         "Полные собрания сочинений": "Complete works",
@@ -128,7 +177,6 @@
         "Музыка других жанров, Разножанровые сборные концерты": "Music of other genres, Multi-genre concerts",
         'Квесты в стиле "Поиск предметов"': "Hidden Object Quests",
         "Фильмы до 1990 года": "Movies before 1990",
-        "Зарубежная рок-музыка": "Foreign rock music",
         "Оцифровки с аналоговых носителей": "Digitization from analog media",
         "Фольклор, народная и этническая": "Folklore, folk and ethnic",
         "других жанров": "other genres",
@@ -145,7 +193,20 @@
         "Игра на гитаре": "Playing the guitar",
         "Комиксы других издательств": "Comics from other publishers",
         "Неофициальные саундтреки к фильмам и сериалам": "Unofficial soundtracks for movies & TV series",
+        "Библиотеки сэмплов": "Sample Libraries",
+        "Музыкальные журналы": "Music Magazines",
+        "Любительские видеоклипы": "Amateur Video Clips",
+        "Официальные апскейлы": "Official Upscales",
+        "Старые игры": "Old Games",
+        "Приключения и квесты": "Adventures and Quests",
+        "Сборники зарубежного рока": "Collections of foreign rock",
+        "Сборники зарубежного рок": "Collections of foreign rock",
+        "Зарубежная рок-музыка": "Foreign rock music",
+        "Документальные фильмы о музыке и музыкантах": "Documentaries about music and musicians",
+        "Иностранные мультфильмы": "Foreign cartoons",
     /* Single words */
+        "Аркады": "Arcade Games",
+        "Русификаторы": "Russifiers",
         "релизов": "releases",
         "Фильмы": "Movies",
         "Дискография": "Discography",
@@ -249,8 +310,68 @@
         "Тип:": "Type:",
         "Статус:": "Status:",
         "Скачан:": "Downloaded:",
-        "раз": "times",
+        "Треклист": "Tracklist",
+        "Контейнер": "Container",
+        "Жанр": "Genre",
+        "Издатель": "Publisher",
+        "Продолжительность": "Duration",
+        "Разрядность": "Bit depth",
+        "Формат": "Format",
+        "Источник": "Source",
+        "релизер": "releaser",
+        "лейбл": "label",
+        "обычная": "ordinary",
+        "проверено": "verified",
+        "Избранное": "Featured",
+        "Статистика": "Statistics",
+        "скачан": "downloaded",
+        "добавить": "add",
+        "флаги": "flags",
+        "аватары": "avatar",
+        "смайлики": "emoticons",
+        "подписи": "signatures",
+        "назад": "back",
+        "Прилеплены": "Pinned",
+        "Темы": "Topics",
+        "Издание": "Edition",
+        "Код": "Code",
+        "есть": "There is",
+        "Состав": "Composition",
+        "сборнике": "collection",
+        "дня": "days",
+        "Сиды": "Seeds",
+        "Личи": "Leeches",
+        "Свернуть": "Collapse",
+        "Развернуть": "Expand",
+        "Спектр": "Spectrum",
+        "АЧХ": "Frequency response",
+        "Самодельный": "Homemade",
+        "Линейный БП": "Linear PSU",
+        "Переключить": "Switch",
+        "Стаж:": "Experience:",
+        "Сообщений:": "Messages:",
+        "альбомов": "albums",
+        "Носитель": "Carrier",
+        "Лейбл": "Label",
+        "кодек": "codec",
+        "никто": "none",
+        "Обработка": "Processing",
+        "Фонокабель": "Phono cable",
+        "Межблочник": "Interblock",
+        "Фонокорректор": "Phono pre-amp",
+        "оцифровщик": "Digitizer",
+        "Программа": "Program",
+        "Техданные": "Technical data",
+        "АЦП": "ADC",
+        " лет": " years",
+        " года": " years",
+        ", ред.": ", edited",
+        " месяцев": " months",
+        "Имя": "Name",
         "ЛС": "PM",
+        " раза": " times",
+        " раз": " time",
+        ": Нет": ": No",
         " и ": " and ",
         " к ": " for ",
         " из ": " of ",
@@ -272,12 +393,21 @@
     // Define input IDs and corresponding custom text
     const inputConfig = {
         "search-submit": "Search",
-        "tr-submit-btn": "Search"
+        "tr-submit-btn": "Search",
+        "thx-btn": 'Say "Thank You"',
+        "tor-filelist-btn": "List of files",
+        'div#topic-options input[type="button"]': 'Apply',
     };
 
     // Config for inputs to change placeholder text
     const placeholderConfig = {
         "fs-qs-input": "filter by section name"
+    };
+
+    // Config for replacing <legend> text
+    const legendConfig = {
+        "Не показывать": "Do not show",
+        "Показывать": "Show"
     };
 
     // Config for hiding elements (CSS selectors)
@@ -286,8 +416,10 @@
         "div#bn-top-right", /* top right banner ad */
         "div#sidebar1_wrap > div.bn-idx", /* left sidebar ad */
         "div#idx-sidebar2 > div.bn-idx", /* right sidebar ad */
+        "div#logo td.tCenter", /* top center td, contains top banner ad below - seems to be only ads here */
         "iframe#bn-top-block", /* top banner ad */
         "div#page_footer > div.ext-links", /* bottom banner ad */
+        "div.dl-btn-text-ad", /* text add under download button */
         "div#nav-panel" /* just kind of pointless, buttons for page up and down on the left side of screen */
     ];
 
@@ -359,6 +491,26 @@
         });
     }
 
+    // Function to change legend text
+    function replaceLegendText(config) {
+        const legends = document.querySelectorAll("legend");
+        legends.forEach(legend => {
+            const originalText = legend.textContent.trim();
+            if (config[originalText]) {
+                legend.textContent = config[originalText];
+            }
+        });
+    }
+
+    function applyCustomText(config) {
+        Object.entries(config).forEach(([selector, text]) => {
+            const input = document.querySelector(selector);
+            if (input) {
+                input.value = text; // Change the button text
+            }
+        });
+    }
+
     // Function to block images by source
     function blockImages(imageSources) {
         const images = document.querySelectorAll("img");
@@ -373,19 +525,24 @@
     hideElements(hideElementsConfig);
     blockImages(blockedImageSources);
 
+    // Run the replacement on the page
+    document.body.childNodes.forEach(replaceText);
+
     window.addEventListener("load", () => {
         // Apply custom text overlays
         Object.entries(inputConfig).forEach(([inputId, customText]) => {
             modifyInputAppearance(inputId, customText);
         });
-
         // Replace placeholder text
         Object.entries(placeholderConfig).forEach(([inputId, placeholderText]) => {
             replacePlaceholderText(inputId, placeholderText);
         });
 
-        // Run the replacement on the page
-        document.body.childNodes.forEach(replaceText);
+        // Replace <legend> text
+        replaceLegendText(legendConfig);
+
+        applyCustomText(inputConfig);
+
     });
 
 })();
