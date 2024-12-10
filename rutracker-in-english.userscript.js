@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rutracker in english
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Some english translations for rutracker's UI
 // @author       n
 // @match        https://rutracker.org/*
@@ -368,6 +368,10 @@
         });
     }
 
+    // Apply element hiding immediately
+    hideElements(hideElementsConfig);
+    blockImages(blockedImageSources);
+
     window.addEventListener("load", () => {
         // Apply custom text overlays
         Object.entries(inputConfig).forEach(([inputId, customText]) => {
@@ -381,12 +385,6 @@
 
         // Run the replacement on the page
         document.body.childNodes.forEach(replaceText);
-
-        // Hide specified elements
-        hideElements(hideElementsConfig);
-
-        // Block specified images
-        blockImages(blockedImageSources);
     });
 
 })();
