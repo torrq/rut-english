@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rutracker in english
 // @namespace    http://tampermonkey.net/
-// @version      1.8
+// @version      1.9
 // @description  Some english translations for rutracker's UI
 // @author       n
 // @match        https://rutracker.org/*
@@ -61,6 +61,7 @@
         "Содержание индексной карты": "Cuesheet",
         "Уровень записи": "Recording level",
         "Доп. информация": "Additional information",
+        "Быстрый ответ": "Quick Reply",
         /* Phrases */
         "Знаменитости и кумиры": "Celebrities and idols",
         "Музыкальная литература и Теория": "Music Literature and Theory",
@@ -361,8 +362,38 @@
         "Фонокорректор": "Phono pre-amp",
         "оцифровщик": "Digitizer",
         "Программа": "Program",
+        "Технические Данные": "Technical data",
         "Техданные": "Technical data",
         "АЦП": "ADC",
+        "Шрифт:": "Font:",
+        "Цвет шрифта:": "Font color:",
+        "По левому краю": "Left aligned",
+        "По правому краю": "Right aligned",
+        "По центру": "Center aligned",
+        "По ширине": "Width aligned",
+        "Выравнивание:": "Alignment:",
+        "Картинка:": "Picture:",
+        "Слева": "Left",
+        "Справа": "Right",
+        "экрана": "of the screen",
+        "По высоте строки": "By line height",
+        "Маленький": "Small",
+        "Обычный": "Standard",
+        "Большой": "Large",
+        "Огромный": "Huge",
+        "Тёмно-красный": "Dark Red",
+        "Тёмно-Зелёный": "Dark Green",
+        "Тёмно-синий": "Dark Blue",
+        "Тёмно-Голубой": "Dark Cyan",
+        "Коричневый": "Brown",
+        "Оранжевый": "Orange",
+        "Красный": "Red",
+        "Фиолетовый": "Purple",
+        "Зелёный": "Green",
+        "Серый": "Gray",
+        "Оливковый": "Olive",
+        "Синий": "Blue",
+        "Индиго": "Indigo",
         " лет": " years",
         " года": " years",
         ", ред.": ", edited",
@@ -396,6 +427,17 @@
         "tr-submit-btn": "Search",
         "thx-btn": 'Say "Thank You"',
         "tor-filelist-btn": "List of files",
+        "load-pic-btn": "Upload image",
+        "p-ext-preview-btn": "Advanced Editing",
+        "p-quick-preview-btn": "Preview",
+        "post-submit-btn": "Send",
+        'div#ped-editor input[name="codeQuote"]': 'Quote',
+        'div#ped-editor input[name="codeImg"]': 'Image',
+        'div#ped-editor input[name="codeUrl"]': 'URL',
+        'div#ped-editor input[name="codeList"]': 'List',
+        'div#ped-editor input[name="codeCode"]': 'Code',
+        'div#ped-editor input[name="codeSpoiler"]': 'Spoiler',
+        'div#ped-editor input[name="quoteselected"]': 'Quote selected text',
         'div#topic-options input[type="button"]': 'Apply',
     };
 
