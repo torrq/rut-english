@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rutracker in english
 // @namespace    http://tampermonkey.net/
-// @version      1.9
+// @version      1.10
 // @description  Some english translations for rutracker's UI
 // @author       n
 // @match        https://rutracker.org/*
@@ -14,6 +14,12 @@
     /* Array of replacements: [original text, replacement text] */
     const replacements = {
     /* Torrent descriptions */
+        "Джазовая и Блюзовая музыка": "Jazz and Blues Music",
+        "Общение на джазовые темы": "Conversations on jazz",
+        "Общение на блюзовые темы": "Conversations on blues",
+        "Ответы в начатых темах": "Replies to started topics",
+        "Начатые темы": "Started topics",
+        'Набор в группу «Хранители» - Помогите сохранить редкие раздачи': 'Recruitment to the group "Guardians" - Help save rare distributions',
         "Формат записи": "Recording Format",
         "Источник записи": "Recording Source",
         "Наличие водяных знаков": "Presence of watermarks",
@@ -63,6 +69,11 @@
         "Доп. информация": "Additional information",
         "Быстрый ответ": "Quick Reply",
         /* Phrases */
+        "Для общения": "For communication",
+        "Книги и журналы": "Books and magazines",
+        "Музыкальный конкурс": "Music competition",
+        "мероприятия и конкурсы": "events and competitions",
+        "В этой папке нет сообщений": "There are no messages in this folder",
         "Знаменитости и кумиры": "Celebrities and idols",
         "Музыкальная литература и Теория": "Music Literature and Theory",
         "Поиск по раздачам": "Search by distribution",
@@ -205,11 +216,40 @@
         "Зарубежная рок-музыка": "Foreign rock music",
         "Документальные фильмы о музыке и музыкантах": "Documentaries about music and musicians",
         "Иностранные мультфильмы": "Foreign cartoons",
+        "Доска почета": "Honor roll",
+        "Новости трекера": "Tracker news",
+        "покупка дисков и т. п.": "transfers, purchase of CDs, etc.",
+        "ОБХОД БЛОКИРОВОК": "BYPASSING BLOCKS",
+        "Популярная музыка": "Popular music",
+        "Поп музыка": "Pop music",
+        "Классическая музыка": "Classical music",
+        "Ноты и Либретто": "Sheet Music and Libretto",
+        "Музыкальное видео": "Music video",
+        "Документалистика и юмор": "Documentary & humor",
+        "Вопросы по форуму и трекеру": "Questions about the forum and tracker",
+        "Товары, услуги, игры и развлечения": "Products, services, games and entertainment",
+        "Обучение иностранным языкам": "Teaching foreign languages",
+        "Обучающее видео": "Educational video",
+        "Авто и мото": "Auto & Moto",
+        "Игры для": "Games for",
+        "Прочее для": "Other for",
+        "мобильных устройств": "mobile devices",
+        "Видео для консолей": "Video for consoles",
+        "Игровое видео": "Game video",
+        "Программы и Дизайн": "Programs & Design",
+        "Мобильные устройства": "Mobile devices",
+        "Обсуждения, встречи, общение": "Discussions, meetings, communication",
     /* Single words */
+        "Разное": "Miscellaneous",
+        "Фольклор": "Folk",
+        "Архив": "Archive",
+        "Сериалы": "Series",
+        "Краудфандинг": "Crowdfunding",
         "Аркады": "Arcade Games",
         "Русификаторы": "Russifiers",
         "релизов": "releases",
         "Фильмы": "Movies",
+        "Кино": "Movie",
         "Дискография": "Discography",
         "Джаз": "Jazz",
         "Инструментальная": "Instrumental",
@@ -243,7 +283,10 @@
         "Музыка": "Music",
         "Отечественный": "Domestic",
         "Итальянская": "Italian",
+        "Караоке": "Karaoke",
         "шансон": "chanson",
+        "Шансон": "Chanson",
+        "Ноты": "Notes",
         "Аудио": "Audio",
         "Опера": "Opera",
         "блюз": "blues",
@@ -267,6 +310,7 @@
         "Размер": "Size",
         "Добавлен": "Added",
         "Форум": "Forum",
+        "Конкурсы": "Competitions",
         "Зарубежный": "Foreign",
         "Зарубежные": "Foreign",
         "Зарубежная": "Foreign",
@@ -306,6 +350,7 @@
         "инструментальная": "instrumental",
         "Рэп": "Rap",
         "Хип-Хоп": "Hip-Hop",
+        "Игры": "Games",
         "играм": "games",
         "игр": "games",
         "Тип:": "Type:",
@@ -373,6 +418,7 @@
         "По ширине": "Width aligned",
         "Выравнивание:": "Alignment:",
         "Картинка:": "Picture:",
+        "Новости": "News",
         "Слева": "Left",
         "Справа": "Right",
         "экрана": "of the screen",
@@ -381,6 +427,11 @@
         "Обычный": "Standard",
         "Большой": "Large",
         "Огромный": "Huge",
+        "Настройки": "Settings",
+        "Входящие": "Incoming",
+        "Исходящие": "Outgoing",
+        "Отправленные": "Sent",
+        "Сохранённые": "Saved",
         "Тёмно-красный": "Dark Red",
         "Тёмно-Зелёный": "Dark Green",
         "Тёмно-синий": "Dark Blue",
@@ -394,6 +445,7 @@
         "Оливковый": "Olive",
         "Синий": "Blue",
         "Индиго": "Indigo",
+        "Спорт": "Sport",
         " лет": " years",
         " года": " years",
         ", ред.": ", edited",
@@ -563,26 +615,22 @@
         });
     }
 
-    // Apply element hiding immediately
     hideElements(hideElementsConfig);
     blockImages(blockedImageSources);
 
-    // Run the replacement on the page
     document.body.childNodes.forEach(replaceText);
 
     window.addEventListener("load", () => {
-        // Apply custom text overlays
+
         Object.entries(inputConfig).forEach(([inputId, customText]) => {
             modifyInputAppearance(inputId, customText);
         });
-        // Replace placeholder text
+
         Object.entries(placeholderConfig).forEach(([inputId, placeholderText]) => {
             replacePlaceholderText(inputId, placeholderText);
         });
 
-        // Replace <legend> text
         replaceLegendText(legendConfig);
-
         applyCustomText(inputConfig);
 
     });
