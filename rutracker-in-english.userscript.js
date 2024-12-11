@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rutracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.11
+// @version      1.12
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -9,8 +9,7 @@
 // @downloadURL  https://github.com/torrq/rut-english/raw/main/rutracker-in-english.userscript.js
 // @supportURL   https://github.com/torrq/rut-english/issues
 // ==/UserScript==
-
-
+// update test
 (function () {
     'use strict';
 
