@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rutracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.13
+// @version      1.14
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -16,6 +16,9 @@
     /* Array of replacements: [original text, replacement text] */
     const replacements = {
     /* Torrent descriptions */
+        "Сборники отечественного шансона": "Collections of Russian chanson",
+        "Восточноазиатский рок": "East Asian Rock",
+        "Инструкции по оцифровкам, Hi-Res и многоканальному аудио": "Instructions for digitization, Hi-Res and multichannel audio",
         "Джазовая и Блюзовая музыка": "Jazz and Blues Music",
         "Общение на джазовые темы": "Conversations on jazz",
         "Общение на блюзовые темы": "Conversations on blues",
@@ -420,7 +423,19 @@
         "Тестовые диски для настройки аудио/видео аппаратуры": "Test disks for setting up audio/video equipment",
         "Материалы для мультимедиа и дизайна": "Materials for multimedia and design",
         "ГИС, системы навигации и карты": "GIS, navigation systems and maps",
+        "Звуки природы": "Sounds of nature",
+        "акустическая гитара": "acoustic guitar",
+        "Каталоги раздач классической и академической музыки": "Catalogues of classical and academic music distribution",
+        "Поиск музыки": "Search music",
+        "Инструкции, руководства, обзоры": "Instructions, guides, reviews",
+        "Вопросы и ответы по музыкальным разделам": "Questions and answers on music sections",
     /* Single words */
+        "сольная": "solo",
+        "хоровая": "choral",
+        "обсуждение": "discussion",
+        "саундтреки": "soundtracks",
+        "Сцен-паки": "Scene packs",
+        "Проморелизы": "Promotional releases",
         "Религии": "Religions",
         "видеоуроки": "video tutorials",
         "графика": "graphics",
