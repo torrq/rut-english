@@ -1,21 +1,22 @@
 // ==UserScript==
 // @name         Rutracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.14
+// @version      1.15
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
+// @match        *://rutracker.nl/*
+// @match        *://rutracker.net/*
 // @updateURL    https://github.com/torrq/rut-english/raw/main/rutracker-in-english.userscript.js
 // @downloadURL  https://github.com/torrq/rut-english/raw/main/rutracker-in-english.userscript.js
 // @supportURL   https://github.com/torrq/rut-english/issues
 // ==/UserScript==
-// update test
+
 (function () {
     'use strict';
 
     /* Array of replacements: [original text, replacement text] */
-    const replacements = {
-    /* Torrent descriptions */
+    const replacementPhrases = { // Phrases
         "Сборники отечественного шансона": "Collections of Russian chanson",
         "Восточноазиатский рок": "East Asian Rock",
         "Инструкции по оцифровкам, Hi-Res и многоканальному аудио": "Instructions for digitization, Hi-Res and multichannel audio",
@@ -77,7 +78,6 @@
         "Журналы и газеты": "Magazines and newspapers",
         "Для детей, родителей и учителей": "For children, parents and teachers",
         "физическая культура, боевые искусства": "physical education, martial arts",
-        /* Phrases */
         "Книги и журналы": "Books and magazines",
         "Музыкальный конкурс": "Music competition",
         "мероприятия и конкурсы": "events and competitions",
@@ -429,7 +429,8 @@
         "Поиск музыки": "Search music",
         "Инструкции, руководства, обзоры": "Instructions, guides, reviews",
         "Вопросы и ответы по музыкальным разделам": "Questions and answers on music sections",
-    /* Single words */
+    };
+    const replacementWords = { // Single words
         "сольная": "solo",
         "хоровая": "choral",
         "обсуждение": "discussion",
@@ -781,34 +782,37 @@
         "https://robinbob.in/images/promo_blue.png"
     ];
 
-    // Function to replace text within the page
     function replaceText(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             let text = node.nodeValue;
-            // Iterate through the keys of the monthTranslations object
-            Object.keys(replacements).forEach(search => {
-                const replace = replacements[search];
+
+            // Replace phrases first
+            Object.keys(replacementPhrases).forEach(search => {
+                const replace = replacementPhrases[search];
                 text = text.replace(new RegExp(search, 'g'), replace);
             });
+
+            // Replace words after phrases
+            Object.keys(replacementWords).forEach(search => {
+                const replace = replacementWords[search];
+                text = text.replace(new RegExp(search, 'g'), replace);
+            });
+
             node.nodeValue = text;
-        } else {
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
             node.childNodes.forEach(replaceText);
         }
     }
 
+    // Function to modify input appearance
     function modifyInputAppearance(inputId, customText) {
         const input = document.getElementById(inputId);
         if (input) {
-            // Ensure the parent element is positioned relatively
             const parent = input.parentNode;
             parent.style.position = "relative";
-
-            // Hide the original input text
             input.style.color = "transparent";
-            input.style.caretColor = "black"; // Keep text cursor visible
+            input.style.caretColor = "black";
             input.style.textShadow = "none";
-
-            // Create an overlay for custom text
             const overlay = document.createElement("div");
             overlay.textContent = customText;
             overlay.style.position = "absolute";
@@ -820,8 +824,6 @@
             overlay.style.textAlign = "center";
             overlay.style.color = "black";
             overlay.style.pointerEvents = "none";
-
-            // Attach overlay to parent
             parent.appendChild(overlay);
         }
     }
@@ -844,6 +846,16 @@
         });
     }
 
+    // Function to block images by source
+    function blockImages(imageSources) {
+        const images = document.querySelectorAll("img");
+        images.forEach(img => {
+            if (imageSources.includes(img.src)) {
+                img.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
     // Function to change legend text
     function replaceLegendText(config) {
         const legends = document.querySelectorAll("legend");
@@ -855,21 +867,12 @@
         });
     }
 
+    // Function to apply custom text to elements
     function applyCustomText(config) {
         Object.entries(config).forEach(([selector, text]) => {
             const input = document.querySelector(selector);
             if (input) {
-                input.value = text; // Change the button text
-            }
-        });
-    }
-
-    // Function to block images by source
-    function blockImages(imageSources) {
-        const images = document.querySelectorAll("img");
-        images.forEach(img => {
-            if (imageSources.includes(img.src)) {
-                img.style.setProperty("display", "none", "important");
+                input.value = text;
             }
         });
     }
@@ -880,7 +883,6 @@
     document.body.childNodes.forEach(replaceText);
 
     window.addEventListener("load", () => {
-
         Object.entries(inputConfig).forEach(([inputId, customText]) => {
             modifyInputAppearance(inputId, customText);
         });
@@ -891,7 +893,5 @@
 
         replaceLegendText(legendConfig);
         applyCustomText(inputConfig);
-
     });
-
 })();
