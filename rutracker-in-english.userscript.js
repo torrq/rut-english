@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.16
+// @version      1.17
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -22,8 +22,8 @@
     const replacementPhrases = { // Phrases
         "Сборники отечественного шансона": "Collections of Russian chanson",
         "Восточноазиатский рок": "East Asian Rock",
-        "Инструкции по оцифровкам, Hi-Res и многоканальному аудио": "Instructions for digitization, Hi-Res and multichannel audio",
-        "Джазовая и Блюзовая музыка": "Jazz and Blues Music",
+        "Инструкции по оцифровкам, Hi-Res и многоканальному аудио": "Instructions for digitization, Hi-Res & multichannel audio",
+        "Джазовая и Блюзовая музыка": "Jazz & Blues Music",
         "Общение на джазовые темы": "Conversations on jazz",
         "Общение на блюзовые темы": "Conversations on blues",
         "Ответы в начатых темах": "Replies to started topics",
@@ -78,15 +78,15 @@
         "Доп. информация": "Additional information",
         "Быстрый ответ": "Quick Reply",
         "Кино, театр, ТВ, мультипликация, цирк": "Cinema, theatre, TV, animation, circus",
-        "Журналы и газеты": "Magazines and newspapers",
-        "Для детей, родителей и учителей": "For children, parents and teachers",
+        "Журналы и газеты": "Magazines & newspapers",
+        "Для детей, родителей и учителей": "For children, parents & teachers",
         "физическая культура, боевые искусства": "physical education, martial arts",
-        "Книги и журналы": "Books and magazines",
+        "Книги и журналы": "Books & magazines",
         "Музыкальный конкурс": "Music competition",
-        "мероприятия и конкурсы": "events and competitions",
+        "мероприятия и конкурсы": "events & competitions",
         "В этой папке нет сообщений": "There are no messages in this folder",
-        "Знаменитости и кумиры": "Celebrities and idols",
-        "Музыкальная литература и Теория": "Music Literature and Theory",
+        "Знаменитости и кумиры": "Celebrities & idols",
+        "Музыкальная литература и Теория": "Music Literature & Theory",
         "Поиск по раздачам": "Search by distribution",
         "Перейти к разделу": "Go to section",
         "Упорядочить по": "Sort by",
@@ -114,7 +114,7 @@
         "Пополнить баланс Steam": "Top up your Steam balance",
         "многоканальная музыка": "multi-channel",
         "Конверсии SACD": "SACD Conversions",
-        "Unofficial compilations and remasterings": "Unofficial remasters",
+        "Unofficial compilations & remasterings": "Unofficial remasters",
         "Манга (на иностранных языках)": "Manga (in foreign languages)",
         "Пошаговые стратегии": "Step-by-Step Strategies",
         "Только открытые раздачи": "Open giveaways only",
@@ -158,11 +158,11 @@
         "Кому задать вопрос": "Who to ask the question to",
         "Авторские раздачи": "Author's distributions",
         "Случайная раздача": "Random distribution",
-        'Новости "Хранителей" и "Антикваров"': 'News of "Keepers" and "Antiques"',
+        'Новости "Хранителей" и "Антикваров"': 'News of "Keepers" & "Antiques"',
         "Мультсериалы": "Cartoon series",
         "Азиатские фильмы": "Asian films",
         "Азиатские сериалы": "Asian TV series",
-        "Концерт для инструмента с оркестром": "Concerto for instrument and orchestra",
+        "Концерт для инструмента с оркестром": "Concerto for instrument & orchestra",
         "для бальных танцев": "for ballroom dancing",
         "зарубежным фильмам": "foreign films",
         "Зарубежное кино": "Foreign films",
@@ -186,18 +186,18 @@
         "по info_hash": "by info hash",
         "форматы, оцифровки": "formats, digitization",
         "Классика мирового кинематографа": "Classics of world cinema",
-        "Сериалы США и Канады": "TV series of the USA and Canada",
+        "Сериалы США и Канады": "TV series of the USA & Canada",
         "Короткий метр": "Short film",
         "Зарубежные сериалы": "Foreign TV Series",
-        "Арт-хаус и авторское кино": "Art-house and art-house cinema",
+        "Арт-хаус и авторское кино": "Art-house & art-house cinema",
         "Зарубежная литература": "Foreign literature",
-        "XX и XXI век": "XX and XXI centuries",
+        "XX и XXI век": "XX & XXI centuries",
         "Telegram-канал": "Telegram Channel",
         "Музыка других жанров, Разножанровые сборные концерты": "Music of other genres, Multi-genre concerts",
         'Квесты в стиле "Поиск предметов"': "Hidden Object Quests",
         "Фильмы до 1990 года": "Movies before 1990",
         "Оцифровки с аналоговых носителей": "Digitization from analog media",
-        "Фольклор, народная и этническая": "Folklore, folk and ethnic",
+        "Фольклор, народная и этническая": "Folklore, folk & ethnic",
         "других жанров": "other genres",
         "Шансон, авторские, военные песни и марши": "Chanson, original, military songs & marches",
         "конверсии цифровых форматов": "digital format conversions",
@@ -216,11 +216,11 @@
         "Любительские видеоклипы": "Amateur Video Clips",
         "Официальные апскейлы": "Official Upscales",
         "Старые игры": "Old Games",
-        "Приключения и квесты": "Adventures and Quests",
+        "Приключения и квесты": "Adventures & Quests",
         "Сборники зарубежного рока": "Collections of foreign rock",
         "Сборники зарубежного рок": "Collections of foreign rock",
         "Зарубежная рок-музыка": "Foreign rock music",
-        "Документальные фильмы о музыке и музыкантах": "Documentaries about music and musicians",
+        "Документальные фильмы о музыке и музыкантах": "Documentaries about music & musicians",
         "Иностранные мультфильмы": "Foreign cartoons",
         "Доска почета": "Honor roll",
         "Новости трекера": "Tracker news",
@@ -229,11 +229,11 @@
         "Популярная музыка": "Popular music",
         "Поп музыка": "Pop music",
         "Классическая музыка": "Classical music",
-        "Ноты и Либретто": "Sheet Music and Libretto",
+        "Ноты и Либретто": "Sheet Music & Libretto",
         "Музыкальное видео": "Music video",
         "Документалистика и юмор": "Documentary & humor",
-        "Вопросы по форуму и трекеру": "Questions about the forum and tracker",
-        "Товары, услуги, игры и развлечения": "Products, services, games and entertainment",
+        "Вопросы по форуму и трекеру": "Questions about the forum & tracker",
+        "Товары, услуги, игры и развлечения": "Products, services, games & entertainment",
         "Обучение иностранным языкам": "Teaching foreign languages",
         "Обучающее видео": "Educational video",
         "Авто и мото": "Auto & Moto",
@@ -243,11 +243,11 @@
         "Игровое видео": "Game video",
         "Программы и Дизайн": "Programs & Design",
         "Обсуждения, встречи, общение": "Discussions, meetings, communication",
-        "Браузерные и клиентские онлайн-игры": "Browser and client online games",
+        "Браузерные и клиентские онлайн-игры": "Browser & client online games",
         "Браузер для геймеров": "Browser for gamers",
         "Как пополнить баланс": "How to top up your balance",
         "в России": "in Russia",
-        "Магазины и образование": "Shops and Education",
+        "Магазины и образование": "Shops & Education",
         "Карта форумов": "Forum Map",
         "Последние раздачи": "Latest Releases",
         "Последние темы": "Latest Topics",
@@ -274,12 +274,12 @@
         "Ин. языки": "Foreign languages",
         "Видеоуроки": "Video tutorials",
         "Мобильные тел.": "Mobile phones",
-        "Мультимедиа и 3D контент": "Multimedia and 3D content",
+        "Мультимедиа и 3D контент": "Multimedia & 3D content",
         "Рок музыка": "Rock music",
-        "Обработка аудио и видео": "Audio and video processing",
-        "Настройки роутеров и файерволлов": "Router and firewall settings",
+        "Обработка аудио и видео": "Audio & video processing",
+        "Настройки роутеров и файерволлов": "Router & firewall settings",
         "Решение проблем с компьютерами": "Solving computer problems",
-        "Хеш-сумма и магнет-ссылки": "Hash sum and magnet links",
+        "Хеш-сумма и магнет-ссылки": "Hash sum & magnet links",
         "FAQ по учёту статистики": "FAQ on statistics accounting",
         "Текущее время": "Current time",
         "Часовой пояс": "Time zone",
@@ -290,7 +290,7 @@
         "Показывать по клику": "Show on click",
         "Показывать по наведению": "Show on hover",
         "Плагины для браузеров": "Browser Plugins",
-        "Блокировка bt, способы обхода и обсуждение": "Blocking bt, bypass methods and discussion",
+        "Блокировка bt, способы обхода и обсуждение": "Blocking bt, bypass methods & discussion",
         "НОВОГОДНИЙ РАЗДЕЛ": "NEW YEAR SECTION",
         "Развлекательные передачи. Документальные фильмы": "Entertainment programs. Documentaries",
         "Книги. Журналы. Ноты": "Books. Magazines. Notes",
@@ -299,8 +299,8 @@
         "Переводы: фильмы, мультфильмы, сериалы - СВ Студия": "Translations: films, cartoons, series - SV Studio",
         "Переводы: фильмы, мультфильмы, сериалы - Авторские переводчики": "Translations: movies, cartoons, TV series - Author translators",
         "основные инструкции": "Basic instructions",
-        "Предложения по улучшению форума и трекера": "Suggestions for improving the forum and tracker",
-        "Вопросы по BitTorrent сети и ее клиентам": "Questions about the BitTorrent network and its clients",
+        "Предложения по улучшению форума и трекера": "Suggestions for improving the forum & tracker",
+        "Вопросы по BitTorrent сети и ее клиентам": "Questions about the BitTorrent network & its clients",
         "Обсуждение провайдеров": "Discussion of providers",
         "Железо: комплексные проблемы": "Hardware: Complex Problems",
         "Железо: комплектующие и периферия": "Hardware: components & peripherals",
@@ -313,18 +313,18 @@
         "Тематические подборки ссылок": "Thematic collections of links",
         "3D/Стерео": "3D/Stereo",
         "Предложения по улучшению категории": "Suggestions for improving the category",
-        "Вера и религия": "Faith and Religion",
+        "Вера и религия": "Faith & Religion",
         "Документальные фильмы и телепередачи": "Documentaries & TV shows",
-        "Развлекательные телепередачи и шоу, приколы и юмор": "Entertainment TV shows and programs, jokes & humor",
+        "Развлекательные телепередачи и шоу, приколы и юмор": "Entertainment TV shows & programs, jokes & humor",
         "Сериалы Латинской Америки, Турции и Индии": "Series from Latin America, Turkey & India",
         "Латиноамериканская": "Latin American",
         "Русские сериалы": "Russian TV series",
         "XXXIII Летние Олимпийские игры 2024": "XXXIII Summer Olympic Games 2024",
-        "Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание. Гимнастика": "Track and field. Swimming. Diving. Synchronized swimming. Gymnastics",
-        "Велоспорт. Академическая гребля. Гребля на байдарках и каноэ": "Cycling. Rowing. Canoeing and kayaking",
+        "Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание. Гимнастика": "Track & field. Swimming. Diving. Synchronized swimming. Gymnastics",
+        "Велоспорт. Академическая гребля. Гребля на байдарках и каноэ": "Cycling. Rowing. Canoeing & kayaking",
         "Футбол. Баскетбол. Волейбол. Гандбол. Водное поло. Регби. Хоккей на траве": "Football. Basketball. Volleyball. Handball. Water Polo. Rugby. Field Hockey",
         "Фехтование. Стрельба. Стрельба из лука. Современное пятиборье": "Fencing. Shooting. Archery. Modern Pentathlon",
-        "Бокс. Борьба Вольная и Греко-римская. Дзюдо. Карате. Тхэквондо": "Boxing. Wrestling Freestyle and Greco-Roman. Judo. Karate. Taekwondo",
+        "Бокс. Борьба Вольная и Греко-римская. Дзюдо. Карате. Тхэквондо": "Boxing. Wrestling Freestyle & Greco-Roman. Judo. Karate. Taekwondo",
         "Другие виды спорта": "Other sports",
         "XXXII Летние Олимпийские игры 2020": "XXXII Summer Olympic Games 2020",
         "XXIV Зимние Олимпийские игры 2022": "XXIV Winter Olympic Games 2022",
@@ -337,12 +337,12 @@
         "Чемпионат Европы": "European Championship",
         "финальный турнир": "final tournament",
         "Европейский клубный баскетбол": "European Club Basketball",
-        'Правила "Книг и журналов", помощь, предложения по улучшению, сканирование': 'Books and Magazines Rules, Help, Suggestions for Improvement, Scanning',
+        'Правила "Книг и журналов", помощь, предложения по улучшению, сканирование': 'Books & Magazines Rules, Help, Suggestions for Improvement, Scanning',
         "Сканирование, обработка сканов": "Scanning, scan processing",
         "общий раздел": "general section",
         "для Apple": "for Apple",
         "для Macintosh": "for Macintosh",
-        "Аудио редакторы и конвертеры": "Audio editors and converters",
+        "Аудио редакторы и конвертеры": "Audio editors & converters",
         "Офисные программы": "Office programs",
         "Отчеты о встречах": "Meeting reports",
         "Место встречи изменить": "Change meeting place",
@@ -352,7 +352,7 @@
         "Для общения пользователей других ресурсов": "For communication between users of other resources",
         "Для общения пользователей": "For communication between users",
         "Для общения": "For communication",
-        "Публикации и учебные материалы": "Publications and educational materials",
+        "Публикации и учебные материалы": "Publications & educational materials",
         "Видео для мобильных устройств": "Video for mobile devices",
         "Приложения для мобильных устройств": "Mobile Applications",
         "мобильных устройств": "mobile devices",
@@ -364,29 +364,29 @@
         "Исторические персоны": "Historical figures",
         "История России": "History of Russia",
         "Эпоха СССР": "The USSR era",
-        "Точные, естественные и инженерные науки": "Exact, natural and engineering sciences",
-        "Ноты и Музыкальная литература": "Sheet Music and Musical Literature",
+        "Точные, естественные и инженерные науки": "Exact, natural & engineering sciences",
+        "Ноты и Музыкальная литература": "Sheet Music & Musical Literature",
         "Военное дело": "Military affairs",
         "История Второй мировой войны": "History of World War II",
         "Военная техника": "Military equipment",
-        "Общая и прикладная психология": "General and Applied Psychology",
+        "Общая и прикладная психология": "General & Applied Psychology",
         "Популярная психология": "Popular psychology",
-        "Коллекционирование, увлечения и хобби": "Collecting, interests and hobbies",
+        "Коллекционирование, увлечения и хобби": "Collecting, interests & hobbies",
         "Шитье, пэчворк": "Sewing, patchwork",
-        "Охота и рыбалка": "Hunting and fishing",
+        "Охота и рыбалка": "Hunting & fishing",
         "Настольные игры": "Board games",
         "Художественная литература": "Fiction",
         "Русская литература": "Russian literature",
         "Отечественная фантастика / фэнтези / мистика": "Domestic science fiction / fantasy / mysticism",
         "Компьютерная литература": "Computer literature",
-        "Веб-дизайн и программирование": "Web design and programming",
+        "Веб-дизайн и программирование": "Web design & programming",
         "Комиксы, манга, ранобэ": "Comics, manga, light novel",
-        "Коллекции книг и библиотеки": "Book collections and libraries",
-        "Мультимедийные и интерактивные издания": "Multimedia and interactive publications",
-        "Медицина и здоровье": "Medicine and health",
+        "Коллекции книг и библиотеки": "Book collections & libraries",
+        "Мультимедийные и интерактивные издания": "Multimedia & interactive publications",
+        "Медицина и здоровье": "Medicine & health",
         "Клиническая медицина после 2000 года": "Clinical Medicine After 2000",
-        "Медико-биологические науки": "Medical and biological sciences",
-        "Нетрадиционная, народная медицина и популярные книги о здоровье": "Alternative, folk medicine and popular health books",
+        "Медико-биологические науки": "Medical & biological sciences",
+        "Нетрадиционная, народная медицина и популярные книги о здоровье": "Alternative, folk medicine & popular health books",
         "Объявления, предложения": "Announcements, offers",
         "Иностранные языки": "Foreign languages",
         "Английский язык": "English language",
@@ -395,43 +395,45 @@
         "на английском языке": "in English",
         "Фитнес - Кардио-Силовые Тренировки": "Fitness - Cardio Strength Training",
         "Боевые искусства": "Martial arts",
-        "Computer video tutorials and educational interactive": "",
+        "Computer video tutorials & educational interactive": "",
         "обучающие интерактивные": "educational interactive",
         "Новости, объявления, полезная информация": "News, announcements, useful information",
         "Радиоспектакли, история, мемуары": "Radio plays, history, memoirs",
         "Фантастика, фэнтези, мистика, ужасы, фанфики": "Science fiction, fantasy, mysticism, horror, fan fiction",
         "Прочая литература": "Other literature",
-        "Ремонт и эксплуатация транспортных средств": "Repair and operation of vehicles",
-        "Программы по диагностике и ремонту": "Diagnostic and repair programs",
+        "Ремонт и эксплуатация транспортных средств": "Repair & operation of vehicles",
+        "Программы по диагностике и ремонту": "Diagnostic & repair programs",
         "Книги по ремонту/обслуживанию/эксплуатации ТС": "Books on repair/maintenance/operation of vehicles",
-        "Фильмы и передачи по авто/мото": "Movies and TV shows about cars/motos",
+        "Фильмы и передачи по авто/мото": "Movies & TV shows about cars/motos",
         "Документальные/познавательные фильмы": "Documentaries/educational films",
         "Предложения по улучшению музыкальных разделов": "Suggestions for improving the music sections",
         "Помощь по музыкальным разделам": "Help with music sections",
-        "Классическая и современная академическая музыка": "Classical and contemporary academic music",
-        "Фольклор, Народная и Этническая музыка": "Folklore, National and Ethnic Music",
+        "Классическая и современная академическая музыка": "Classical & contemporary academic music",
+        "Фольклор, Народная и Этническая музыка": "Folklore, National & Ethnic Music",
         "Этническая музыка": "Ethnic music of",
-        "Саундтреки, караоке и мюзиклы": "Soundtracks, karaoke and musicals",
-        "Шансон, Авторская и Военная песня": "Chanson, Author's and Military Song",
-        "Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги": "Label and scene packs. Unofficial compilations and remasters",
+        "Саундтреки, караоке и мюзиклы": "Soundtracks, karaoke & musicals",
+        "Шансон, Авторская и Военная песня": "Chanson, Author's & Military Song",
+        "Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги": "Label & scene packs. Unofficial compilations & remasters",
         "Помощь по музыкальным видео": "Help with music videos",
         "Некондиционное музыкальное видео": "Substandard music video",
         "музыкальное видео": "music video",
         "Оригинальные каталоги по подбору запчастей": "Original catalogs for selection of spare parts",
         "помощь, предложения по улучшению категории": "help, suggestions for improving the category",
-        "Linux, Unix и другие ОС": "Linux, Unix and other OS",
-        "Системы для бизнеса, офиса, научной и проектной работы": "Systems for business, office, scientific and project work",
+        "Linux, Unix и другие ОС": "Linux, Unix & other OS",
+        "Системы для бизнеса, офиса, научной и проектной работы": "Systems for business, office, scientific & project work",
         "Операционные системы от Microsoft": "Operating systems from Microsoft",
-        "Программы для работы с мультимедиа и 3D": "Programs for working with multimedia and 3D",
+        "Программы для работы с мультимедиа и 3D": "Programs for working with multimedia & 3D",
         "Тестовые диски для настройки аудио/видео аппаратуры": "Test disks for setting up audio/video equipment",
-        "Материалы для мультимедиа и дизайна": "Materials for multimedia and design",
-        "ГИС, системы навигации и карты": "GIS, navigation systems and maps",
+        "Материалы для мультимедиа и дизайна": "Materials for multimedia & design",
+        "ГИС, системы навигации и карты": "GIS, navigation systems & maps",
         "Звуки природы": "Sounds of nature",
         "акустическая гитара": "acoustic guitar",
-        "Каталоги раздач классической и академической музыки": "Catalogues of classical and academic music distribution",
+        "Каталоги раздач классической и академической музыки": "Catalogues of classical & academic music distribution",
         "Поиск музыки": "Search music",
         "Инструкции, руководства, обзоры": "Instructions, guides, reviews",
-        "Вопросы и ответы по музыкальным разделам": "Questions and answers on music sections",
+        "Вопросы и ответы по музыкальным разделам": "Questions & answers on music sections",
+        "для детей": "for children",
+        "Самолёты и вертолёты для FS2004, FSX, P3D": "Airplanes & helicopters for FS2004, FSX, P3D",
     };
     const replacementWords = { // Single words
         "сольная": "solo",
@@ -918,6 +920,7 @@
             <div class="dropdown">
                 <button class="dropdown-btn">RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}</button>
                 <div class="dropdown-content">
+                    <div class="dropdown-header">Settings</a></div>
                     <label>
                         <input type="checkbox" id="adBlockingCheckbox" ${isAdBlockingEnabled ? 'checked' : ''}>
                         Ad Blocking
@@ -926,6 +929,8 @@
                         <input type="checkbox" id="translateCheckbox" ${isTranslateEnabled ? 'checked' : ''}>
                         Translation
                     </label>
+                    <div class="dropdown-header">Links</a></div>
+                   <div class="dropdown-link">🔗 <a href="https://github.com/torrq/rut-english" target="_blank">GitHub</a></div>
                 </div>
             </div>
         `;
@@ -978,7 +983,7 @@ GM_addStyle(`
     }
 
     .dropdown-btn {
-        background-color: #006600;
+        background-color: #000066;
         color: white;
         padding: 2px;
         font-size: 8pt;
@@ -999,8 +1004,21 @@ GM_addStyle(`
         padding: 2px;
     }
 
+    .dropdown-link a {
+        margin: 0 0 0 -2px;
+        text-decoration: underline;
+    }
+
     .dropdown:hover .dropdown-content {
         display: block;
+    }
+
+    .dropdown-header {
+        margin: 0 0 0 -2px;
+        background-color: #000033;
+        color: #72B9EA;
+        font-size: 8pt;
+        font-weight: bold;
     }
 
     label {
