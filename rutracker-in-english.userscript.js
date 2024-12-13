@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name         Rutracker in English
+// @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.15
+// @version      1.16
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
 // @match        *://rutracker.nl/*
 // @match        *://rutracker.net/*
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_addStyle
 // @updateURL    https://github.com/torrq/rut-english/raw/main/rutracker-in-english.userscript.js
 // @downloadURL  https://github.com/torrq/rut-english/raw/main/rutracker-in-english.userscript.js
 // @supportURL   https://github.com/torrq/rut-english/issues
@@ -782,6 +785,10 @@
         "https://robinbob.in/images/promo_blue.png"
     ];
 
+    // Toggles
+    const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
+    const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
+
     function replaceText(node) {
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             let text = node.nodeValue;
@@ -877,21 +884,132 @@
         });
     }
 
-    hideElements(hideElementsConfig);
-    blockImages(blockedImageSources);
+    if (isAdBlockingEnabled) {
+        hideElements(hideElementsConfig);
+        blockImages(blockedImageSources);
+    };
 
-    document.body.childNodes.forEach(replaceText);
+    if (isTranslateEnabled) {
+        document.body.childNodes.forEach(replaceText);
+    };
 
     window.addEventListener("load", () => {
-        Object.entries(inputConfig).forEach(([inputId, customText]) => {
-            modifyInputAppearance(inputId, customText);
-        });
+        if (isTranslateEnabled) {
+            Object.entries(inputConfig).forEach(([inputId, customText]) => {
+                modifyInputAppearance(inputId, customText);
+            });
 
-        Object.entries(placeholderConfig).forEach(([inputId, placeholderText]) => {
-            replacePlaceholderText(inputId, placeholderText);
-        });
+            Object.entries(placeholderConfig).forEach(([inputId, placeholderText]) => {
+                replacePlaceholderText(inputId, placeholderText);
+            });
 
-        replaceLegendText(legendConfig);
-        applyCustomText(inputConfig);
+            replaceLegendText(legendConfig);
+            applyCustomText(inputConfig);
+        }
+
+    const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
+
+    if (lastW50Td) {
+        lastW50Td.style.width = '40%'; // Reduce width for the new td
+
+        // Create the new td for the dropdown menu
+        const newTd = document.createElement('td');
+        newTd.innerHTML = `
+            <div class="dropdown">
+                <button class="dropdown-btn">RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}</button>
+                <div class="dropdown-content">
+                    <label>
+                        <input type="checkbox" id="adBlockingCheckbox" ${isAdBlockingEnabled ? 'checked' : ''}>
+                        Ad Blocking
+                    </label>
+                    <label>
+                        <input type="checkbox" id="translateCheckbox" ${isTranslateEnabled ? 'checked' : ''}>
+                        Translation
+                    </label>
+                </div>
+            </div>
+        `;
+
+        const row = lastW50Td.closest('tr');
+        const firstTd = row.querySelector('td');
+        row.insertBefore(newTd, firstTd);
+
+        // Ad Blocking checkbox functionality
+        const adBlockingCheckbox = document.getElementById('adBlockingCheckbox');
+        if (adBlockingCheckbox) {
+            adBlockingCheckbox.addEventListener('change', function() {
+                const isChecked = adBlockingCheckbox.checked;
+                localStorage.setItem('adBlockingEnabled', isChecked.toString());
+                if (isChecked) {
+                    console.log("Ad Blocking is now enabled");
+                    // Add your ad-blocking functionality here
+                } else {
+                    console.log("Ad Blocking is now disabled");
+                    // Disable ad-blocking functionality here
+                }
+                location.reload(); // Trigger page reload
+            });
+        }
+
+        // Translation checkbox functionality
+        const translateCheckbox = document.getElementById('translateCheckbox');
+        if (translateCheckbox) {
+            translateCheckbox.addEventListener('change', function() {
+                const isChecked = translateCheckbox.checked;
+                localStorage.setItem('translateEnabled', isChecked.toString());
+                if (isChecked) {
+                    console.log("Translation is now enabled");
+                    // Add your translation functionality here
+                } else {
+                    console.log("Translation is now disabled");
+                    // Disable translation functionality here
+                }
+                location.reload(); // Trigger page reload
+            });
+        }
+    }
+
     });
+
+GM_addStyle(`
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-btn {
+        background-color: #006600;
+        color: white;
+        padding: 2px;
+        font-size: 8pt;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        width: 130px;
+        white-space: nowrap;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #222;
+        min-width: 140px;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 2px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    label {
+        font-size: 8pt;
+        color: #fff;
+    }
+
+    input[type="checkbox"] {
+        margin: -4px 0 0 0;
+    }
+`);
 })();
