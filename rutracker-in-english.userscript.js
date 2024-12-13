@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.17
+// @version      1.18
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -434,8 +434,12 @@
         "Вопросы и ответы по музыкальным разделам": "Questions & answers on music sections",
         "для детей": "for children",
         "Самолёты и вертолёты для FS2004, FSX, P3D": "Airplanes & helicopters for FS2004, FSX, P3D",
+        "Страна исполнителя": "Country of the performer",
+        "Об исполнителе": "About the artist",
     };
     const replacementWords = { // Single words
+        "группе": "group",
+        "группы": "groups",
         "сольная": "solo",
         "хоровая": "choral",
         "обсуждение": "discussion",
@@ -534,9 +538,11 @@
         "посещения": "visits",
         "Конкурсы": "Competitions",
         "Саундтреки": "Soundtracks",
-        "Коллекция ": "Collection",
+        "Коллекция": "Collection",
+        "коллекция": "collection",
         "сборники": "collections",
         "Сборники": "Collections",
+        "альбома": "album",
         "Апмиксы-Upmixes": "Upmixes",
         "Аудиокниги": "Audiobooks",
         "аудиокниги": "audiobooks",
