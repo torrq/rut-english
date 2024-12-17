@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.18
+// @version      1.20
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -436,6 +436,7 @@
         "Самолёты и вертолёты для FS2004, FSX, P3D": "Airplanes & helicopters for FS2004, FSX, P3D",
         "Страна исполнителя": "Country of the performer",
         "Об исполнителе": "About the artist",
+        "Извините, раздача недоступна для вашего региона": "Sorry, distribution is not available for your region.",
     };
     const replacementWords = { // Single words
         "группе": "group",
@@ -775,6 +776,31 @@
         "Показывать": "Show"
     };
 
+    const replacementOptGroupLabels = {
+        ' Новости': 'News',
+        ' Кино, Видео и ТВ': 'Cinema, Video and TV',
+        ' Сериалы': 'Series',
+        ' Документалистика и юмор': 'Documentary & Humor',
+        ' Спорт': 'Sports',
+        ' Книги и журналы': 'Books & Magazines',
+        ' Обучение иностранным языкам': 'Teaching Foreign Languages',
+        ' Обучающее видео': 'Educational Videos',
+        ' Аудиокниги': 'Audiobooks',
+        ' Авто и мото': 'Auto & Moto',
+        ' Популярная музыка': 'Popular Music',
+        ' Джазовая и Блюзовая музыка': 'Jazz & Blues Music',
+        ' Рок-музыка': 'Rock Music',
+        ' Электронная музыка': 'Electronic Music',
+        ' Hi-Res форматы, оцифровки': 'Hi-Res formats, digitalization',
+        ' Музыкальное видео': 'Music Videos',
+        ' Музыка': 'Music',
+        ' Игры': 'Games',
+        ' Программы и Дизайн': 'Programs & Design',
+        ' Мобильные устройства': 'Mobile Devices',
+        ' Разное': 'Miscellaneous',
+        ' Обсуждения, встречи, общение': 'Discussions, meetings, communication'
+    };
+
     // Config for hiding elements (CSS selectors)
     const hideElementsConfig = [
         "div#main-nav > ul.ext-links", /* top right text ad */
@@ -785,7 +811,9 @@
         "iframe#bn-top-block", /* top banner ad */
         "div#page_footer > div.ext-links", /* bottom banner ad */
         "div.dl-btn-text-ad", /* text add under download button */
-        "div#nav-panel" /* just kind of pointless, buttons for page up and down on the left side of screen */
+    /* just kind of pointless, buttons for page up and down on the left side of screen */
+        "div#nav-panel",
+        "div#nav-panel div"
     ];
 
     // Array of blocked image URLs
@@ -892,6 +920,17 @@
         });
     }
 
+    // Function to apply custom text to <optgroup> label's (category/group names on tracker page)
+    function updateOptGroupLabels() {
+        const optGroups = document.querySelectorAll('optgroup');
+        optGroups.forEach(optGroup => {
+            const oldLabel = optGroup.label; // Add NBSP before the current label
+            if (replacementOptGroupLabels.hasOwnProperty(oldLabel)) {
+                optGroup.label = '\u00A0' + replacementOptGroupLabels[oldLabel];
+            }
+        });
+    }
+
     if (isAdBlockingEnabled) {
         hideElements(hideElementsConfig);
         blockImages(blockedImageSources);
@@ -911,7 +950,12 @@
                 replacePlaceholderText(inputId, placeholderText);
             });
 
+            if (window.location.pathname === '/forum/tracker.php') {
+                updateOptGroupLabels();
+            }
+
             replaceLegendText(legendConfig);
+
             applyCustomText(inputConfig);
         }
 
