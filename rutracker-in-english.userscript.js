@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.20
+// @version      1.21
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -17,8 +17,8 @@
 
 (function () {
     'use strict';
-
-    /* Array of replacements: [original text, replacement text] */
+	
+	// Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
         "Сборники отечественного шансона": "Collections of Russian chanson",
         "Восточноазиатский рок": "East Asian Rock",
@@ -230,7 +230,6 @@
         "Поп музыка": "Pop music",
         "Классическая музыка": "Classical music",
         "Ноты и Либретто": "Sheet Music & Libretto",
-        "Музыкальное видео": "Music video",
         "Документалистика и юмор": "Documentary & humor",
         "Вопросы по форуму и трекеру": "Questions about the forum & tracker",
         "Товары, услуги, игры и развлечения": "Products, services, games & entertainment",
@@ -416,7 +415,6 @@
         "Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги": "Label & scene packs. Unofficial compilations & remasters",
         "Помощь по музыкальным видео": "Help with music videos",
         "Некондиционное музыкальное видео": "Substandard music video",
-        "музыкальное видео": "music video",
         "Оригинальные каталоги по подбору запчастей": "Original catalogs for selection of spare parts",
         "помощь, предложения по улучшению категории": "help, suggestions for improving the category",
         "Linux, Unix и другие ОС": "Linux, Unix & other OS",
@@ -437,8 +435,34 @@
         "Страна исполнителя": "Country of the performer",
         "Об исполнителе": "About the artist",
         "Извините, раздача недоступна для вашего региона": "Sorry, distribution is not available for your region.",
+        'Авторские дебюты': 'Author\'s debuts',
+        'Фильмы России и СССР на национальных языках': 'Films of Russia & the USSR in national languages',
+        'без перевода': 'without translation',
+        'Фильмы Ближнего Зарубежья': 'Films of the Near Abroad',
+        'Мультфильмы Ближнего Зарубежья ': 'Cartoons of the Near Abroad',
+        'Индийское кино': 'Indian Cinema',
+        'Сборники фильмов': 'Movie Collections',
+        'Звуковые дорожки и Переводы': 'Soundtracks & Translations',
+        'Отечественные мультфильмы': 'Domestic Cartoons',
+        '3D Ролики, Музыкальное видео, Трейлеры к фильмам': '3D Videos, Music Videos, Movie Trailers',
+        'Иностранные короткометражные мультфильмы': 'Foreign Short Cartoons',
+        'Отечественные полнометражные мультфильмы': 'Domestic full-length cartoons',
+        'Сборники мультфильмов': 'Cartoon Collections',
+        'плеерный подраздел': 'Player subsection',
+        "Музыкальное видео": "Music video",
+        "музыкальное видео": "music video",
+        'Японские мультфильмы': 'Japanese Cartoons',
+        'Звуковые дорожки': 'Soundtracks',
+        'Обои, сканы, аватары, арт': 'Wallpapers, scans, avatars, art',
+        'другие ролики': 'other videos',
     };
     const replacementWords = { // Single words
+        'Артбуки': 'Artbooks',
+        'Ван-Пис': 'One Piece',
+        'Гандам': 'Gundam',
+        'Наруто': 'Naruto',
+        'Покемоны': 'Pokemon',
+        'подраздел': 'subsection',
         "группе": "group",
         "группы": "groups",
         "сольная": "solo",
@@ -496,6 +520,7 @@
         "Мультфильмы": "Cartoons",
         "Мультфильмы": "Cartoons",
         "мультфильмам": "cartoons",
+        'Анимация': 'Animation',
         "Клипарты": "Clip Art",
         "консолей": "consoles",
         "Юмор": "Humor",
@@ -812,6 +837,7 @@
         "div#page_footer > div.ext-links", /* bottom banner ad */
         "div.dl-btn-text-ad", /* text add under download button */
     /* just kind of pointless, buttons for page up and down on the left side of screen */
+        'div#bn-topic-block a',
         "div#nav-panel",
         "div#nav-panel div"
     ];
@@ -879,14 +905,11 @@
         }
     }
 
-    // Function to hide elements
-    function hideElements(selectors) {
-        selectors.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.style.setProperty("display", "none", "important");
-            });
-        });
+    // For ad blocking by CSS selector
+    function injectStyles(selectors) {
+        const style = document.createElement("style");
+        style.textContent = selectors.map(selector => `${selector} { display: none !important; }`).join("\n");
+        document.head.appendChild(style);
     }
 
     // Function to block images by source
@@ -932,7 +955,7 @@
     }
 
     if (isAdBlockingEnabled) {
-        hideElements(hideElementsConfig);
+        injectStyles(hideElementsConfig);
         blockImages(blockedImageSources);
     };
 
