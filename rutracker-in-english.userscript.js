@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.21
+// @version      1.22
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -17,7 +17,7 @@
 
 (function () {
     'use strict';
-	
+
 	// Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
         "Сборники отечественного шансона": "Collections of Russian chanson",
@@ -455,8 +455,22 @@
         'Звуковые дорожки': 'Soundtracks',
         'Обои, сканы, аватары, арт': 'Wallpapers, scans, avatars, art',
         'другие ролики': 'other videos',
+        'Графические редакторы': 'Graphic Editors',
+        'Офисные системы': 'Office Systems',
+        'Редакторы видео': 'Video Editors',
+        'История Азии и Африки': 'History of Asia & Africa',
+        'Отечественная рок-музыка': 'Domestic rock music',
+        'Средние века': 'Middle Ages',
+        'Звуковые эффекты': 'Sound Effects',
+        'Зарубежная фантастика / фэнтези / мистика': 'Foreign Science Fiction / Fantasy / Mysticism',
+        'модификации, плагины, дополнения': 'modifications, plugins, add-ons',
+        'Любовно-фантастический роман': 'Fantasy Romance Novel',
+        'Программы для настройки и оптимизации ОС': 'Programs for setting up & optimizing the OS',
     };
     const replacementWords = { // Single words
+        'Хорроры': 'Horror',
+        'Испания': 'Spain',
+        'Стратегии': 'Strategies',
         'Артбуки': 'Artbooks',
         'Ван-Пис': 'One Piece',
         'Гандам': 'Gundam',
