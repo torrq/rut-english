@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.25
+// @version      1.26
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -15,11 +15,26 @@
 // @supportURL   https://github.com/torrq/rut-english/issues
 // ==/UserScript==
 
-(function () {
+(function() {
     'use strict';
 
-	// Array of replacements: {'original text': 'replacement text'}
+    // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Учебная и научно-популярная литература': 'Educational & popular science literature',
+        'Книги по медицине': 'Books on medicine',
+        'Нетрадиционные религиозно-философские учения': 'Non-traditional religious & philosophical teachings',
+        'традиционные религии': 'traditional religions',
+        'Азиатская подростковая литература, ранобэ, веб-новеллы': 'Asian Young Adult Literature, Light Novel, Web Novels',
+        'Российские детективы, приключения, триллеры, боевики': 'Russian detectives, adventures, thrillers, action films',
+        'Зарубежные детективы, приключения, триллеры, боевики': 'Foreign detectives, adventures, thrillers, action films',
+        'Детская литература': "Children's literature",
+        'Современные любовные романы': 'Modern Romance Novels',
+        'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфики': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
+        'Российская фантастика, фэнтези, мистика, ужасы, фанфики': 'Russian science fiction, fantasy, mysticism, horror, fan fiction',
+        'Зарубежная фантастика, фэнтези, мистика, ужасы, фанфики': 'Foreign science fiction, fantasy, mysticism, horror, fan fiction',
+        'История, культурология, философия': 'History, cultural studies, philosophy',
+        'Радиоспектакли и литературные чтения': 'Radio plays & literary readings',
+        'Общение, обсуждения, поиск аудиокниг': 'Communication, discussions, search for audiobooks',
         'системы навигации и карты': 'navigation systems & maps',
         'Встроенная автомобильная навигация': 'Built-in car navigation',
         'Карты прочие': 'Other maps',
@@ -631,6 +646,12 @@
         'только новые темы': 'only new topics',
     };
     const replacementWords = { // Single words
+        'Некондиционные': 'Substandard',
+        'Бизнес': 'Business',
+        'Ислам': 'Islam',
+        'Православие': 'Orthodoxy',
+        'Поэзия': 'Poetry',
+        'мемуары': 'memoirs',
         'после': 'after',
         'ГИС': 'GIS',
         'Шрифты': 'Fonts',
@@ -818,7 +839,9 @@
         "Категории": "Categories",
         "По форуму": "Forum",
         "Тема": "Subject",
+        'Авторы': 'Authors',
         "Автор": "Author",
+        'Исполнители': 'Performers',
         "Размер": "Size",
         "Добавлен": "Added",
         "Форум": "Forum",
@@ -976,7 +999,7 @@
         " к ": " for ",
         " из ": " of ",
         'НГ]': 'NG]',
-    /* Abbreviated Months */
+        /* Abbreviated Months */
         "Янв": "Jan",
         "Фев": "Feb",
         "Мар": "Mar",
@@ -1060,7 +1083,7 @@
         "iframe#bn-top-block", /* top banner ad */
         "div#page_footer > div.ext-links", /* bottom banner ad */
         "div.dl-btn-text-ad", /* text add under download button */
-    /* just kind of pointless, buttons for page up and down on the left side of screen */
+        /* just kind of pointless, buttons for page up and down on the left side of screen */
         'div#bn-topic-block a',
         "div#nav-panel",
         "div#nav-panel div"
@@ -1085,7 +1108,7 @@
                 text = text.replace(new RegExp(search, 'g'), replace);
             });
 
-            // Replace words after phrases
+            // Replace words last
             Object.keys(replacementWords).forEach(search => {
                 const replace = replacementWords[search];
                 text = text.replace(new RegExp(search, 'g'), replace);
@@ -1206,14 +1229,14 @@
             applyCustomText(inputConfig);
         }
 
-    const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
+        const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
 
-    if (lastW50Td) {
-        lastW50Td.style.width = '40%'; // Reduce width for the new td
+        if (lastW50Td) {
+            lastW50Td.style.width = '40%'; // Reduce width for the new td
 
-        // Create the new td for the dropdown menu
-        const newTd = document.createElement('td');
-        newTd.innerHTML = `
+            // Create the new td for dropdown menu
+            const newTd = document.createElement('td');
+            newTd.innerHTML = `
             <div class="dropdown">
                 <button class="dropdown-btn">RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}</button>
                 <div class="dropdown-content">
@@ -1232,48 +1255,44 @@
             </div>
         `;
 
-        const row = lastW50Td.closest('tr');
-        const firstTd = row.querySelector('td');
-        row.insertBefore(newTd, firstTd);
+            const row = lastW50Td.closest('tr');
+            const firstTd = row.querySelector('td');
+            row.insertBefore(newTd, firstTd);
 
-        // Ad Blocking checkbox functionality
-        const adBlockingCheckbox = document.getElementById('adBlockingCheckbox');
-        if (adBlockingCheckbox) {
-            adBlockingCheckbox.addEventListener('change', function() {
-                const isChecked = adBlockingCheckbox.checked;
-                localStorage.setItem('adBlockingEnabled', isChecked.toString());
-                if (isChecked) {
-                    console.log("Ad Blocking is now enabled");
-                    // Add your ad-blocking functionality here
-                } else {
-                    console.log("Ad Blocking is now disabled");
-                    // Disable ad-blocking functionality here
-                }
-                location.reload(); // Trigger page reload
-            });
-        }
+            // Ad Blocking checkbox
+            const adBlockingCheckbox = document.getElementById('adBlockingCheckbox');
+            if (adBlockingCheckbox) {
+                adBlockingCheckbox.addEventListener('change', function() {
+                    const isChecked = adBlockingCheckbox.checked;
+                    localStorage.setItem('adBlockingEnabled', isChecked.toString());
+                    if (isChecked) {
+                        console.log("Ad Blocking is now enabled");
+                    } else {
+                        console.log("Ad Blocking is now disabled");
+                    }
+                    location.reload();
+                });
+            }
 
-        // Translation checkbox functionality
-        const translateCheckbox = document.getElementById('translateCheckbox');
-        if (translateCheckbox) {
-            translateCheckbox.addEventListener('change', function() {
-                const isChecked = translateCheckbox.checked;
-                localStorage.setItem('translateEnabled', isChecked.toString());
-                if (isChecked) {
-                    console.log("Translation is now enabled");
-                    // Add your translation functionality here
-                } else {
-                    console.log("Translation is now disabled");
-                    // Disable translation functionality here
-                }
-                location.reload(); // Trigger page reload
-            });
+            // Translation checkbox
+            const translateCheckbox = document.getElementById('translateCheckbox');
+            if (translateCheckbox) {
+                translateCheckbox.addEventListener('change', function() {
+                    const isChecked = translateCheckbox.checked;
+                    localStorage.setItem('translateEnabled', isChecked.toString());
+                    if (isChecked) {
+                        console.log("Translation is now enabled");
+                    } else {
+                        console.log("Translation is now disabled");
+                    }
+                    location.reload();
+                });
+            }
         }
-    }
 
     });
 
-GM_addStyle(`
+    GM_addStyle(`
     .dropdown {
         position: relative;
         display: inline-block;
