@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.24
+// @version      1.25
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,57 @@
 
 	// Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'системы навигации и карты': 'navigation systems & maps',
+        'Встроенная автомобильная навигация': 'Built-in car navigation',
+        'Карты прочие': 'Other maps',
+        'астрономические, исторические, тематические': 'astronomical, historical, thematic',
+        'Атласы и карты старинные': 'Atlases & old maps',
+        'Атласы и карты современные': 'Atlases & modern maps',
+        'Карты, снабженные программной оболочкой': 'Cards equipped with a software shell',
+        'Геоинформационные системы': 'Geoinformation systems',
+        'Дополнения, стили, кисти, формы, узоры для программ Adobe': 'Add-ons, styles, brushes, shapes, patterns for Adobe programs',
+        'Материалы для создания меню и обложек DVD': 'Materials for creating DVD menus & covers',
+        'Библиотеки и саундбанки для сэмплеров, пресеты для синтезаторов': 'Libraries & soundbanks for samplers, presets for synthesizers',
+        'Музыкальные библиотеки': 'Music libraries',
+        'Прочие сборники футажей': 'Other footage collections',
+        '3D модели, сцены и материалы': '3D models, scenes & materials',
+        'Прочие растровые клипарты': 'Other raster clipart',
+        'Рамки, шаблоны, текстуры и фоны': 'Frames, patterns, textures & backgrounds',
+        'Дополнения для программ компоузинга и постобработки': 'Add-ons for compositing and post-processing programs',
+        'Прочие векторные клипарты': 'Other vector clip art',
+        'Официальные сборники векторных клипартов': 'Official vector clip art collections',
+        'Авторские работы': "Author's works",
+        'Материалы для мультимедиа и дизайна': 'Materials for multimedia & design',
+        'Ищу/Предлагаю': 'Looking for/Offering',
+        'для работы со звуком': 'for working with sound',
+        'Плагины для обработки звука': 'Sound Processing Plugins',
+        'Виртуальные инструменты и синтезаторы': 'Virtual instruments & synthesizers',
+        'Виртуальные студии, секвенсоры и аудиоредакторы': 'Virtual studios, sequencers & audio editors',
+        'Каталогизаторы и просмотрщики графики': 'Catalogers & graphic viewers',
+        'Аудио- и видео-, CD- проигрыватели и каталогизаторы': 'Audio & video, CD players & catalogers',
+        '3D моделирование, рендеринг и плагины для них': '3D modeling, rendering & plugins for them',
+        'Программы для верстки, печати и работы со шрифтами': 'Programs for layout, printing & working with fonts',
+        'Плагины для программ компании Adobe': 'Plugins for Adobe programs',
+        'Программные комплекты': 'Software packages',
+        'Шаблоны для сайтов и CMS': 'Templates for websites & CMS',
+        'Скрипты и движки сайтов, CMS а также расширения к ним': 'Scripts and website engines, CMS & extensions to them',
+        'Системы управления базами данных': 'Database management systems',
+        'Компоненты для сред программирования': 'Components for programming environments',
+        'Среды программирования, компиляторы и вспомогательные программы': 'Programming environments, compilers & auxiliary programs',
+        'Текстовые редакторы с подсветкой': 'Text editors with highlighting',
+        'Редакторы для веб-диза': 'Editors for web design',
+        'Системы для бизнеса, офиса, научной и проектной работы': 'Systems for business, office, scientific & project work',
+        'Прочие справочные системы': 'Other reference systems',
+        'Библиотеки и проекты для архитекторов и дизайнеров интерьеров': 'Libraries and projects for architects & interior designers',
+        'Программы для архитекторов и строителей': 'Programs for architects & builders',
+        'общие и машиностроительные': 'general & mechanical engineering',
+        'электроника, автоматика, ГАП': 'electronics, automation, gas-powered automation',
+        'Системы для научной работы': 'Systems for scientific work',
+        'Словари, переводчики': 'Dictionaries, translators',
+        'Системы для бизнеса': 'Systems for business',
+        'Распознавание текста, звука и синтез речи': 'Text, sound recognition and speech synthesis',
+        'Медицина - интерактивный софт': 'Medicine - interactive software',
+        'Всё для дома: кройка, шитьё, кулинария': 'Everything for the home: cutting, sewing, cooking',
         'Нативные игры для Linux': 'Native Games for Linux',
         'Игры для Mac с Wineskin, DOSBox, Cider и другими': 'Mac Games with Wineskin, DOSBox, Cider & More',
         'Фольклор, Народная, Этническая музыка и Flamenco': 'Folklore, National, Ethnic Music & Flamenco',
@@ -573,8 +624,21 @@
         'Изменение интерфейса ОС Windows': 'Changing the Windows OS interface',
         'Системные программы под Windows': 'System programs for Windows',
         "Системные программы": "System programs",
+        'Посл. сообщение': 'Last message',
+        'Время размещения': 'Time posted',
+        'Открыть непрочитанные': 'Open unread',
+        'только новые сообщения': 'only new messages',
+        'только новые темы': 'only new topics',
     };
     const replacementWords = { // Single words
+        'после': 'after',
+        'ГИС': 'GIS',
+        'Шрифты': 'Fonts',
+        'Футажи': 'Footage',
+        'Подписка': 'Subscription',
+        'конверторы': 'converters',
+        'Создание': 'Making',
+        'САПР': 'CAD',
         'Скринсейверы': 'Screensavers',
         'оригинальные': 'original',
         'сборки': 'assemblies',
@@ -629,6 +693,7 @@
         "Образование": "Education",
         "ин.языки": "foreign languages",
         "Программирование": "Programming",
+        'программирование': 'programming',
         "СУБД": "DBMS",
         "Деревообработка": "Woodworking",
         "Моделизм": "Modeling",
@@ -679,6 +744,7 @@
         "Другие": "Other",
         'другими': 'others',
         "торрент": "torrent",
+        'Торрент': 'Torrent',
         "Разное": "Miscellaneous",
         "Фольклор": "Folk",
         "Архив": "Archive",
@@ -900,6 +966,7 @@
         "музыка": "music",
         "Музыка": "Music",
         " месяцев": " months",
+        'Отв.': 'Replies',
         "Имя": "Name",
         "ЛС": "PM",
         " раза": " times",
@@ -942,6 +1009,9 @@
         'div#ped-editor input[name="codeSpoiler"]': 'Spoiler',
         'div#ped-editor input[name="quoteselected"]': 'Quote selected text',
         'div#topic-options input[type="button"]': 'Apply',
+        'input[value="по разделу"]': 'by section',
+        'input[value="по подразд."]': 'by subsection',
+        'input[value="Перейти"]': 'Go to',
     };
 
     // Config for inputs to change placeholder text
@@ -977,7 +1047,7 @@
         ' Программы и Дизайн': 'Programs & Design',
         ' Мобильные устройства': 'Mobile Devices',
         ' Разное': 'Miscellaneous',
-        ' Обсуждения, встречи, общение': 'Discussions, meetings, communication'
+        ' Обсуждения, встречи, общение': 'Discussions, meetings, communication',
     };
 
     // Config for hiding elements (CSS selectors)
