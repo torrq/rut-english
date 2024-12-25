@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.28
+// @version      1.30
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,116 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Управление аватарой': 'Avatar management',
+        'Загрузить аватару': 'Upload avatar',
+        'Подробнее об ограничениях': 'More about restrictions',
+        'Изображение под вашим именем в сообщениях': 'Image under your name in messages',
+        'Максимальные ШИРИНА и ВЫСОТА:': 'Max WIDTH & HEIGHT:',
+        'Максимальный вес:': 'Maximum size:',
+        'Удалить изображение': 'Delete image',
+        'Не работает для magnet-ссылок. Оставьте поле пустым для домена по умолчанию.': "Doesn't work for magnet links. Leave blank for default domain.",
+        'Доменное имя для трекера': 'Domain name for tracker',
+        'Отключить анимацию иконок': 'Disable icon animation',
+        'Добавлять название темы в имя скачиваемого торрент-файла': 'Add topic name to downloaded torrent file name',
+        'Добавлять ретрекер в торрент-файлы': 'Add rutracker to torrent files',
+        'Скрывать список активных раздач': 'Hide the list of active distributions',
+        'Включить учет отданного': 'Enable accounting of given',
+        'Введите новый пароль, если меняете текущий': 'Enter a new password if you are changing the current one',
+        'Введите текущий пароль, если хотите изменить его или e-mail': 'Enter your current password if you want to change it or your e-mail',
+        'Отключить получение и отправку ЛС:': 'Disable receiving & sending PMs:',
+        'Как отключить показ подписей': 'How to disable display of signatures',
+        'Запрещены ссылки на сторонние ресурсы сети': 'Links to third-party network resources are prohibited',
+        'Макс. вес картинок:': 'Max. image weight:',
+        'Макс. ШИРИНА×ВЫСОТА картинок:': 'Max. WIDTH×HEIGHT of images:',
+        'Макс. длина текста:': 'Max text length:',
+        'Личные настройки': 'Personal settings',
+        'Поля, отмеченные': 'Fields marked with',
+        'обязательны к заполнению': 'are required',
+        'Персональная информация': 'Personal Information',
+        'Регистрационная информация': 'Registration information',
+        'Род занятий': 'Occupation',
+        'Текущий пароль': 'Current Password',
+        'Новый пароль': 'New Password',
+        'Редактирование профиля': 'Editing profile',
+        'Хоккей с мячом / Бенди': 'Ball hockey / Bendy',
+        'Международные соревнования': 'International competitions',
+        'Мини-футбол/Пляжный футбол': 'Mini-football/Beach football',
+        'Обзорные и аналитические передачи': 'Review & analytical programs',
+        'Товарищеские турниры и матчи': 'Friendly tournaments & matches',
+        'Чемпионаты Европы': 'European Championships',
+        'Международные турниры': 'International tournaments',
+        'Другие национальные чемпионаты и кубки': 'Other national championships & cups',
+        'Чемпионаты Мира': 'World Championships',
+        'Лига Наций': 'League of Nations',
+        'Гимнастика/Соревнования по танцам': 'Gymnastics/Dance Competitions',
+        'Лёгкая атлетика/Водные виды спорта': 'Athletics/Water Sports',
+        'Бадминтон/Настольный теннис': 'Badminton/Table Tennis',
+        'Классические единоборства': 'Classical martial arts',
+        'Бодибилдинг/Силовые виды спорта': 'Bodybuilding/Strength Sports',
+        'Волейбол/Гандбол': 'Volleyball/Handball',
+        'Обзорные и аналитические программы': 'Review & analytical programs',
+        'Конькобежный спорт / Шорт-трек': 'Speed Skating / Short Track',
+        'Бобслей / Санный спорт / Скелетон': 'Bobsleigh / Luge / Skeleton',
+        'Горные лыжи / Сноубординг / Фристайл': 'Alpine Skiing / Snowboarding / Freestyle',
+        'Прыжки на лыжах с трамплина / Лыжное двоеборье': 'Ski jumping / Nordic combined',
+        'Лыжные гонки': 'Cross-country skiing',
+        'Гимнастика. Прыжки на батуте. Фехтование. Стрельба. Современное пятиборье': 'Gymnastics. Trampoline jumping. Fencing. Shooting. Modern pentathlon',
+        'Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание': 'Athletics. Swimming. Diving. Synchronized swimming',
+        'Теннис. Настольный теннис. Бадминтон': 'Tennis. Table tennis. Badminton',
+        'Тюнинг/форсаж': 'Tuning/Fast & Furious',
+        'Тест драйв/Обзоры/Автосалоны': 'Test drive/Reviews/Car showrooms',
+        'Top Gear/Топ Гир': 'Top Gear',
+        'Развлекательные передачи': 'Entertainment programs',
+        'Водный транспорт': 'Water transport',
+        'Журналы по авто/мото': 'Auto/Moto Magazines',
+        'Видеоуроки ремонту транспортных средств': 'Video tutorials on vehicle repair',
+        'Видеоуроки по вождению транспортных средств': 'Video lessons on driving vehicles',
+        'Виртуальная автошкола': 'Virtual driving school',
+        'Учет, утилиты и прочее': 'Accounting, utilities & more',
+        'Мультимедийки по ремонту/обслуживанию/эксплуатации ТС': 'Multimedia on repair/maintenance/operation of vehicles',
+        'Тюнинг, чиптюнинг, настройка': 'Tuning, chip tuning, customization',
+        'Неоригинальные каталоги по подбору запчастей': 'Non-original spare parts selection catalogs',
+        'Ремонт и эксплуатация ТС': 'Repair & operation of vehicles',
+        'Трейлеры и дополнительные материалы к фильмам': 'Trailers & additional materials for films',
+        'Фото знаменитостей': 'Celebrity Photos',
+        'Любительские фотографии': 'Amateur photography',
+        'Живопись, Графика, Скульптура, Digital Art': 'Painting, Graphics, Sculpture, Digital Art',
+        'Аватары, Иконки, Смайлы': 'Avatars, Icons, Smileys',
+        'Психоактивные аудиопрограммы': 'Psychoactive audio programs',
+        'Предложения по улучшению раздела "Разное", помощь по разделу': 'Suggestions for improving the "Miscellaneous" section, help with the section',
+        'Нужна помощь пиратов': 'Need help from pirates',
+        'Вопросы и предложения': 'Questions & suggestions',
+        'Пиратская философия': 'Pirate Philosophy',
+        'Интернет-бизнес': 'Internet business',
+        'Свой бизнес': 'Own business',
+        'Руководство и Персонал': 'Management & Staff',
+        'Недвижимость и страхование': 'Real estate & insurance',
+        'Новости бизнеса': 'Business news',
+        'Для студентов': 'For students',
+        'Административное и Уголовное право': 'Administrative & Criminal Law',
+        'Гражданское и Трудовое право': 'Civil & Labor Law',
+        'Форумные игры': 'Forum games',
+        'Общественное движение': 'Social movement',
+        'О ситуации с файлообменом в России': 'On the situation with file sharing in Russia',
+        'К странице': 'To page',
+        'не проверено': 'not verified',
+        'Видео для смартфонов и КПК': 'Video for smartphones & PDAs',
+        'Видео в формате 3GP для мобильных': '3GP Video for Mobile',
+        'Обои и темы': 'Wallpapers & Themes',
+        'Прошивки для телефонов': 'Firmware for phones',
+        'Софт для работы с телефоном': 'Software for working with a phone',
+        'Приложения для': 'Applications for',
+        'Часть категорий скрыта "Опциями показа"': 'Some categories are hidden by "Display Options"',
+        'Вопросы-ответы': 'Questions & Answers',
+        'Документальное видео': 'Documentary video',
+        'для iOS': 'for iOS',
+        'для iPod': 'for iPod',
+        'для PC': 'for PC',
+        'Другие программы': 'Other programs',
+        'Программы для интернета и сетей': 'Programs for the Internet & networks',
+        'Программы для создания и обработки графики': 'Programs for creating & processing graphics',
+        'Программы для просмотра и обработки видео': 'Programs for viewing & processing video',
+        'для РС-Хакинтош': 'for PC-Hackintosh',
         'Форс-мажоры / Костюмы в законе / Suits': 'Suits',
         'Клан Сопрано / The Sopranos': 'The Sopranos',
         'Карточный Домик / House of Cards': 'House of Cards',
@@ -465,6 +575,7 @@
         'XXIV Зимние Олимпийские игры 2022': 'XXIV Winter Olympic Games 2022',
         'Спортивные турниры, фильмы и передачи': 'Sports tournaments, films & programs',
         'Формула-1': 'Formula-1',
+        'Формула 1': 'Formula 1',
         'Смешанные единоборства и K-1': 'Mixed Martial Arts & K-1',
         'Зимние виды спорта': 'Winter sports',
         'Фигурное катание': 'Figure skating',
@@ -703,6 +814,33 @@
         'только новые темы': 'only new topics',
     };
     const replacementWords = { // Single words
+        'пикселов': 'pixels',
+        'очистить': 'clear',
+        'предпросмотр': 'preview',
+        'Интересы': 'Interests',
+        'максимум': 'maximum',
+        'символов': 'characters',
+        'Подпись': 'Signature',
+        'Канада': 'Canada',
+        'футбол': 'football',
+        'Украина': 'Ukraine',
+        'Франция': 'France',
+        'Германия': 'Germany',
+        'Италия': 'Italy',
+        'Экстрим': 'Extreme',
+        'Теннис': 'Tennis',
+        'Бейсбол': 'Baseball',
+        'Регби': 'Rugby',
+        'Покер': 'Poker',
+        'Бильярд': 'Billiards',
+        'Автоспорт': 'Autosport',
+        'Мотоспорт': 'Motorsport',
+        'Керлинг': 'Curling',
+        'Обои': 'Wallpaper',
+        'Финансы': 'Finance',
+        'Процесс': 'Process',
+        'премодерация': 'pre-moderation',
+        'Хакинтош': 'Hackintosh',
         'След': 'Track',
         'Вход.': 'Login',
         'Отправить': 'Send',
@@ -1072,10 +1210,13 @@
         'ЛС': 'PM',
         ' раза': ' times',
         ' раз': ' time',
-        ': Нет': ': No',
+        ' Нет': ' No',
+        ' Да': ' Yes',
         ' и ': ' and ',
         ' к ': ' for ',
         ' из ': ' of ',
+        'до ': 'until ',
+        'вкл.': 'incl.',
         'НГ]': 'NG]',
         'нет': 'none',
         /* Abbreviated Months */
@@ -1114,6 +1255,7 @@
         'input[value="по разделу"]': 'by section',
         'input[value="по подразд."]': 'by subsection',
         'input[value="Перейти"]': 'Go to',
+        'input[value="Отправить"]': 'Send',
     };
 
     // Config for inputs to change placeholder text
@@ -1124,7 +1266,8 @@
     // Config for replacing <legend> text
     const legendConfig = {
         'Не показывать': 'Do not show',
-        'Показывать': 'Show'
+        'Показывать': 'Show',
+        'Скрыть категории': 'Hide Categories'
     };
 
     const replacementOptGroupLabels = {
@@ -1178,23 +1321,40 @@
     const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
 
     function replaceText(node) {
+        // Handle text nodes
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             let text = node.nodeValue;
-
             // Replace phrases first
             Object.keys(replacementPhrases).forEach(search => {
                 const replace = replacementPhrases[search];
                 text = text.replace(new RegExp(search, 'g'), replace);
             });
-
             // Replace words last
             Object.keys(replacementWords).forEach(search => {
                 const replace = replacementWords[search];
                 text = text.replace(new RegExp(search, 'g'), replace);
             });
-
             node.nodeValue = text;
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
+        }
+        // Handle element nodes
+        else if (node.nodeType === Node.ELEMENT_NODE) {
+            // Replace title attribute content if it exists
+            if (node.hasAttribute('title')) {
+                let titleText = node.getAttribute('title');
+                // Replace phrases first
+                Object.keys(replacementPhrases).forEach(search => {
+                    const replace = replacementPhrases[search];
+                    titleText = titleText.replace(new RegExp(search, 'g'), replace);
+                });
+                // Replace words last
+                Object.keys(replacementWords).forEach(search => {
+                    const replace = replacementWords[search];
+                    titleText = titleText.replace(new RegExp(search, 'g'), replace);
+                });
+                node.setAttribute('title', titleText);
+            }
+
+            // Process child nodes recursively
             node.childNodes.forEach(replaceText);
         }
     }
