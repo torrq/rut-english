@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.33
+// @version      1.34
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -1602,6 +1602,7 @@
     // Toggles
     const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
     const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
+    const isHideLogoEnabled = localStorage.getItem('hideLogoEnabled') === 'true' || localStorage.getItem('hideLogoEnabled') === null;
 
     function replaceText(node) {
         // Handle text nodes
@@ -1771,6 +1772,10 @@
                         <input type="checkbox" id="translateCheckbox" ${isTranslateEnabled ? 'checked' : ''}>
                         Translation
                     </label>
+                    <label>
+                        <input type="checkbox" id="hideLogoCheckbox" ${isHideLogoEnabled ? 'checked' : ''}>
+                        Hide Logo
+                    </label>
                     <div class="dropdown-header">Links</a></div>
                    <div class="dropdown-link">🔗 <a href="https://github.com/torrq/rut-english" target="_blank">GitHub</a></div>
                 </div>
@@ -1785,9 +1790,9 @@
             const adBlockingCheckbox = document.getElementById('adBlockingCheckbox');
             if (adBlockingCheckbox) {
                 adBlockingCheckbox.addEventListener('change', function() {
-                    const isChecked = adBlockingCheckbox.checked;
-                    localStorage.setItem('adBlockingEnabled', isChecked.toString());
-                    if (isChecked) {
+                    const adBlockingisChecked = adBlockingCheckbox.checked;
+                    localStorage.setItem('adBlockingEnabled', adBlockingisChecked.toString());
+                    if (adBlockingisChecked) {
                         console.log("Ad Blocking is now enabled");
                     } else {
                         console.log("Ad Blocking is now disabled");
@@ -1800,9 +1805,9 @@
             const translateCheckbox = document.getElementById('translateCheckbox');
             if (translateCheckbox) {
                 translateCheckbox.addEventListener('change', function() {
-                    const isChecked = translateCheckbox.checked;
-                    localStorage.setItem('translateEnabled', isChecked.toString());
-                    if (isChecked) {
+                    const translateisChecked = translateCheckbox.checked;
+                    localStorage.setItem('translateEnabled', translateisChecked.toString());
+                    if (translateisChecked) {
                         console.log("Translation is now enabled");
                     } else {
                         console.log("Translation is now disabled");
@@ -1810,62 +1815,94 @@
                     location.reload();
                 });
             }
+
+//    const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
+//    const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
+//    const isHideLogoEnabled = localStorage.getItem('hideLogoEnabled') === 'true' || localStorage.getItem('hideLogoEnabled') === null;
+
+            // Hide Logo checkbox
+            const hideLogoCheckbox = document.getElementById('hideLogoCheckbox');
+            if (hideLogoCheckbox) {
+                hideLogoCheckbox.addEventListener('change', function() {
+                    const hideLogoisChecked = hideLogoCheckbox.checked;
+                    localStorage.setItem('hideLogoEnabled', hideLogoisChecked.toString());
+                    if (hideLogoisChecked) {
+                        console.log("Hide Logo is now enabled");
+                    } else {
+                        console.log("Hide Logo is now disabled");
+                    }
+                    location.reload();
+                });
+            }
+
         }
 
     });
 
-    GM_addStyle(`
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+let styles = `
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-    .dropdown-btn {
-        background-color: #000066;
-        color: white;
-        padding: 2px;
-        font-size: 8pt;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-        width: 130px;
-        white-space: nowrap;
-    }
+.dropdown-btn {
+    background-color: #000066;
+    color: white;
+    padding: 2px;
+    font-size: 8pt;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    white-space: nowrap;
+}
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #222;
-        min-width: 140px;
-        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        padding: 2px;
-    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    min-width: 140px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 2px;
+}
 
-    .dropdown-link a {
-        margin: 0 0 0 -2px;
-        text-decoration: underline;
-    }
+.dropdown-link a {
+    margin: 0 0 0 -2px;
+    text-decoration: underline;
+}
 
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-    .dropdown-header {
-        margin: 0 0 0 -2px;
-        background-color: #000033;
-        color: #72B9EA;
-        font-size: 8pt;
-        font-weight: bold;
-    }
+.dropdown-header {
+    margin: 0 0 0 -2px;
+    background-color: #000033;
+    color: #72B9EA;
+    font-size: 8pt;
+    font-weight: bold;
+}
 
-    label {
-        font-size: 8pt;
-        color: #fff;
-    }
+label {
+    font-size: 8pt;
+    color: #fff;
+}
 
-    input[type="checkbox"] {
-        margin: -4px 0 0 0;
-    }
-`);
+input[type="checkbox"] {
+    margin: -4px 0 0 0;
+}
+`;
+
+    if(isHideLogoEnabled) {
+        styles += `
+div#logo {
+    display: none !important;
+}
+`;
+    };
+
+// Apply the styles using GM_addStyle
+GM_addStyle(styles);
+
 })();
