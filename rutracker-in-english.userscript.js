@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.32
+// @version      1.33
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,7 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Расширенный поиск': 'Advanced Search',
         'Программы для Mac OS': 'Programs for Mac OS',
         'WEB, SMM, SEO, интернет-маркетинг': 'WEB, SMM, SEO, internet marketing',
         'Web-дизайн': 'Web design',
@@ -1042,6 +1043,7 @@
         'только новые темы': 'only new topics',
     };
     const replacementWords = { // Single words
+        'Создан': 'Created',
         'Компьютерные': 'Computer',
         'Ушу': 'Wushu',
         'оружием': 'weapons',
@@ -1536,6 +1538,7 @@
         'input[value="Отправить"]': 'Submit',
         'input[value="Удалить все (очистить папку)"]': 'Delete all (clear folder)',
         'input[value="Удалить отмеченное"]': 'Remove marked',
+        'input[value="Поиск"]': 'Search',
     };
 
     // Config for inputs to change placeholder text
