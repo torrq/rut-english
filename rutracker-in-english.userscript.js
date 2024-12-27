@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.34
+// @version      1.36
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,24 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Этническая музыка Сибири, Средней и Восточной Азии': 'Ethnic music of Siberia, Central & East Asia',
+        'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфики': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
+        'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфи': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
+        'Комиксы на русском языке': 'Comics in Russian',
+        'Самиздат, статьи из журналов, фрагменты книг, любительские переводы': 'Samizdat, magazine articles, book fragments, amateur translations',
+        'Самиздат, статьи из журналов, фрагменты книг, любительские перевод': 'Samizdat, magazine articles, book fragments, amateur translation',
+        'Гимнастика. Прыжки на батуте. Фехтование. Стрельба. Современное пятиборье': 'Gymnastics. Trampoline jumping. Fencing. Shooting. Modern pentathlon',
+        'Гимнастика. Прыжки на батуте. Фехтование. Стрельба. Современное пя': 'Gymnastics. Trampoline jumping. Fencing. Shooting. Modern football.',
+        'Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание. Гимнастика': 'Track & field. Swimming. Diving. Synchronized swimming. Gymnastics',
+        'Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание. Гим': 'Track & field. Swimming. Diving. Synchronized swimming. Gym',
+        'Велоспорт. Академическая гребля. Гребля на байдарках и каноэ': 'Cycling. Rowing. Canoeing & kayaking',
+        'Фехтование. Стрельба. Стрельба из лука. Современное пятиборье': 'Fencing. Shooting. Archery. Modern Pentathlon',
+        'Бокс. Борьба Вольная и Греко-римская. Дзюдо. Карате. Тхэквондо': 'Boxing. Wrestling Freestyle & Greco-Roman. Judo. Karate. Taekwondo',
+        'Футбол. Баскетбол. Волейбол. Гандбол. Водное поло. Регби. Хоккей на траве': 'Football. Basketball. Volleyball. Handball. Water Polo. Rugby. Field Hockey',
+        'Футбол. Баскетбол. Волейбол. Гандбол. Водное поло. Регби. Хоккей н': 'Football. Basketball. Volleyball. Handball. Water Polo. Rugby. Hockey',
+        'Битва экстрасенсов / Теория невероятности / Искатели / Галил': 'Battle of Psychics / Improbability Theory / Seekers / Galil',
+        'Информационно-аналитические и общественно-политические передачи': 'Information, analytical & socio-political programs',
+        'Информационно-аналитические и общественно-политические перед': 'Informational, analytical and socio-political issues',
         'Расширенный поиск': 'Advanced Search',
         'Программы для Mac OS': 'Programs for Mac OS',
         'WEB, SMM, SEO, интернет-маркетинг': 'WEB, SMM, SEO, internet marketing',
@@ -77,7 +95,6 @@
         'Комиксы на других языках': 'Comics in other languages',
         'Комиксы издательства Marvel': 'Marvel Comics',
         'Комиксы издательства DC': 'DC Comics',
-        'Комиксы на русском языке': 'Comics in Russian',
         'Дисковые приложения к игровым журналам': 'Disc attachments to game magazines',
         'Компьютерные журналы и приложения к ним': 'Computer magazines & their supplements',
         'Инженерные и научные программы': 'Engineering & Science Programs',
@@ -160,7 +177,6 @@
         'Учебная литература для старших классов': 'Educational literature for senior classes',
         'до 4 класса': 'up to 4th grade',
         'Учебная литература для детского сада и начальной школы': 'Educational literature for kindergarten & primary school',
-        'Самиздат, статьи из журналов, фрагменты книг, любительские переводы': 'Samizdat, magazine articles, book fragments, amateur translations',
         'Мода. Стиль. Этикет': 'Fashion. Style. Etiquette',
         'Красота. Уход. Домоводство': 'Beauty. Care. Housekeeping',
         'Эзотерика, гадания, магия, фен-шуй': 'Esoterics, fortune telling, magic, feng shui',
@@ -217,7 +233,6 @@
         'Древний мир / Античность / Средневековье': 'Ancient World / Antiquity / Middle Ages',
         'Всё о доме, быте и дизайне': 'All about home, everyday life & design',
         'Архитектура и строительство': 'Architecture & construction',
-        'Информационно-аналитические и общественно-политические передачи': 'Information, analytical & socio-political programs',
         'Социальные ток-шоу': 'Social talk shows',
         'Путешествия и туризм': 'Travel & Tourism',
         'Флора и фауна': 'Flora & Fauna',
@@ -302,7 +317,6 @@
         'Горные лыжи / Сноубординг / Фристайл': 'Alpine Skiing / Snowboarding / Freestyle',
         'Прыжки на лыжах с трамплина / Лыжное двоеборье': 'Ski jumping / Nordic combined',
         'Лыжные гонки': 'Cross-country skiing',
-        'Гимнастика. Прыжки на батуте. Фехтование. Стрельба. Современное пятиборье': 'Gymnastics. Trampoline jumping. Fencing. Shooting. Modern pentathlon',
         'Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание': 'Athletics. Swimming. Diving. Synchronized swimming',
         'Теннис. Настольный теннис. Бадминтон': 'Tennis. Table tennis. Badminton',
         'Тюнинг/форсаж': 'Tuning/Fast & Furious',
@@ -425,7 +439,6 @@
         'Зарубежные детективы, приключения, триллеры, боевики': 'Foreign detectives, adventures, thrillers, action films',
         'Детская литература': "Children's literature",
         'Современные любовные романы': 'Modern Romance Novels',
-        'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфики': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
         'Российская фантастика, фэнтези, мистика, ужасы, фанфики': 'Russian science fiction, fantasy, mysticism, horror, fan fiction',
         'Зарубежная фантастика, фэнтези, мистика, ужасы, фанфики': 'Foreign science fiction, fantasy, mysticism, horror, fan fiction',
         'История, культурология, философия': 'History, cultural studies, philosophy',
@@ -794,11 +807,6 @@
         'Латиноамериканская': 'Latin American',
         'Русские сериалы': 'Russian TV series',
         'XXXIII Летние Олимпийские игры 2024': 'XXXIII Summer Olympic Games 2024',
-        'Легкая атлетика. Плавание. Прыжки в воду. Синхронное плавание. Гимнастика': 'Track & field. Swimming. Diving. Synchronized swimming. Gymnastics',
-        'Велоспорт. Академическая гребля. Гребля на байдарках и каноэ': 'Cycling. Rowing. Canoeing & kayaking',
-        'Футбол. Баскетбол. Волейбол. Гандбол. Водное поло. Регби. Хоккей на траве': 'Football. Basketball. Volleyball. Handball. Water Polo. Rugby. Field Hockey',
-        'Фехтование. Стрельба. Стрельба из лука. Современное пятиборье': 'Fencing. Shooting. Archery. Modern Pentathlon',
-        'Бокс. Борьба Вольная и Греко-римская. Дзюдо. Карате. Тхэквондо': 'Boxing. Wrestling Freestyle & Greco-Roman. Judo. Karate. Taekwondo',
         'Другие виды спорта': 'Other sports',
         'XXXII Летние Олимпийские игры 2020': 'XXXII Summer Olympic Games 2020',
         'XXIV Зимние Олимпийские игры 2022': 'XXIV Winter Olympic Games 2022',
@@ -1347,6 +1355,7 @@
         'зарубежного': 'foreign',
         'Видео': 'Video',
         'видео': 'video',
+        'Виде': 'Video',
         'Биографии': 'Biographies',
         'Личности': 'Personalities',
         'кумиры': 'idols',
@@ -1595,9 +1604,9 @@
     ];
 
     // Array of blocked image URLs
-    const blockedImageSources = [
+    const blockedImageSources = new Set([
         "https://robinbob.in/images/promo_blue.png"
-    ];
+    ]);
 
     // Toggles
     const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
@@ -1667,30 +1676,37 @@
         }
     }
 
-    // Function to replace placeholder text
-    function replacePlaceholderText(inputId, placeholderText) {
-        const input = document.getElementById(inputId);
-        if (input && input.placeholder !== undefined) {
-            input.placeholder = placeholderText;
-        }
-    }
+    // Function to replace placeholder text - v2, optimized
+    const replacePlaceholderText = (inputId, placeholderText) => document.getElementById(inputId)?.setAttribute('placeholder', placeholderText);
 
-    // For ad blocking by CSS selector
-    function injectStyles(selectors) {
+    window.addEventListener("load", () => {
+        if (!isTranslateEnabled) return;
+        const updates = Object.entries(placeholderConfig)
+        .map(([id, text]) => ({
+            el: document.getElementById(id),
+            text
+        }))
+        .filter(({el}) => el);
+        for (const {el, text} of updates) {
+            el.setAttribute('placeholder', text);
+        }
+    });
+
+    // For ad blocking by CSS selector - v2, optimized
+    const injectStyles = selectors => {
         const style = document.createElement("style");
-        style.textContent = selectors.map(selector => `${selector} { display: none !important; }`).join("\n");
+        style.textContent = `${selectors.join(",")} { display: none !important; }`;
         document.head.appendChild(style);
-    }
+    };
 
     // Function to block images by source
-    function blockImages(imageSources) {
-        const images = document.querySelectorAll("img");
-        images.forEach(img => {
-            if (imageSources.includes(img.src)) {
-                img.style.setProperty("display", "none", "important");
-            }
-        });
-    }
+    const blockImages = sources => {
+        const style = document.createElement("style");
+        const selectors = [...sources].map(src =>
+                                           `img[src="${src}"]`).join(",");
+        style.textContent = `${selectors} { display: none !important; }`;
+        document.head.appendChild(style);
+    };
 
     // Function to change legend text
     function replaceLegendText(config) {
@@ -1737,10 +1753,6 @@
         if (isTranslateEnabled) {
             Object.entries(inputConfig).forEach(([inputId, customText]) => {
                 modifyInputAppearance(inputId, customText);
-            });
-
-            Object.entries(placeholderConfig).forEach(([inputId, placeholderText]) => {
-                replacePlaceholderText(inputId, placeholderText);
             });
 
             if (window.location.pathname === '/forum/tracker.php') {
