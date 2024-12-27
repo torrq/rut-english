@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.36
+// @version      1.38
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,12 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Просмотр пока недоступен': 'Viewing is not available yet',
+        'Раздача ожидает проверки модератором': 'Distribution is awaiting moderator approval',
+        'Вы уже оставляли спасибо в этой теме': 'You have already left thanks in this thread',
+        'Спасибо за благодарность': 'Thank you for your gratitude',
+        'собственный рип': 'own rip',
+        'Скриншот спектра частот': 'Screenshot of frequency spectrum',
         'Этническая музыка Сибири, Средней и Восточной Азии': 'Ethnic music of Siberia, Central & East Asia',
         'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфики': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
         'Сборники/разное Фантастика, фэнтези, мистика, ужасы, фанфи': 'Collections/various Science fiction, fantasy, mysticism, horror, fan fiction',
@@ -1403,6 +1409,7 @@
         'Разрядность': 'Bit depth',
         'Формат': 'Format',
         'Источник': 'Source',
+        'источник': 'source',
         'релизер': 'releaser',
         'лейбл': 'label',
         'обычная': 'ordinary',
@@ -1613,42 +1620,34 @@
     const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
     const isHideLogoEnabled = localStorage.getItem('hideLogoEnabled') === 'true' || localStorage.getItem('hideLogoEnabled') === null;
 
-    function replaceText(node) {
-        // Handle text nodes
-        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
-            let text = node.nodeValue;
-            // Replace phrases first
-            Object.keys(replacementPhrases).forEach(search => {
-                const replace = replacementPhrases[search];
-                text = text.replace(new RegExp(search, 'g'), replace);
-            });
-            // Replace words last
-            Object.keys(replacementWords).forEach(search => {
-                const replace = replacementWords[search];
-                text = text.replace(new RegExp(search, 'g'), replace);
-            });
-            node.nodeValue = text;
-        }
-        // Handle element nodes
-        else if (node.nodeType === Node.ELEMENT_NODE) {
-            // Replace title attribute content if it exists
-            if (node.hasAttribute('title')) {
-                let titleText = node.getAttribute('title');
-                // Replace phrases first
-                Object.keys(replacementPhrases).forEach(search => {
-                    const replace = replacementPhrases[search];
-                    titleText = titleText.replace(new RegExp(search, 'g'), replace);
-                });
-                // Replace words last
-                Object.keys(replacementWords).forEach(search => {
-                    const replace = replacementWords[search];
-                    titleText = titleText.replace(new RegExp(search, 'g'), replace);
-                });
-                node.setAttribute('title', titleText);
-            }
+    // Pre-compile RegExp objects
+    const regexMap = new Map([
+        ...Object.entries(replacementPhrases),
+        ...Object.entries(replacementWords)
+    ].map(([search, replace]) => [
+        new RegExp(search, 'g'),
+        replace
+    ]));
 
-            // Process child nodes recursively
-            node.childNodes.forEach(replaceText);
+    function replaceText(node) {
+        const processText = text => {
+            let result = text;
+            for (const [regex, replace] of regexMap) {
+                result = result.replace(regex, replace);
+            }
+            return result;
+        };
+
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
+            node.nodeValue = processText(node.nodeValue);
+        }
+        else if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.hasAttribute('title')) {
+                node.setAttribute('title', processText(node.getAttribute('title')));
+            }
+            for (const child of node.childNodes) {
+                replaceText(child);
+            }
         }
     }
 
@@ -1699,7 +1698,7 @@
         document.head.appendChild(style);
     };
 
-    // Function to block images by source
+    // Function to block images by source - v2 optimized
     const blockImages = sources => {
         const style = document.createElement("style");
         const selectors = [...sources].map(src =>
@@ -1708,37 +1707,43 @@
         document.head.appendChild(style);
     };
 
-    // Function to change legend text
-    function replaceLegendText(config) {
-        const legends = document.querySelectorAll("legend");
-        legends.forEach(legend => {
-            const originalText = legend.textContent.trim();
-            if (config[originalText]) {
-                legend.textContent = config[originalText];
-            }
-        });
-    }
+    // Function to change legend text - v2 optimized
+    const replaceLegendText = config => {
+        try {
+            [...document.getElementsByTagName('legend')].forEach(legend => {
+                const newText = config[legend.textContent.trim()];
+                if (newText) legend.textContent = newText;
+            });
+        } catch (error) {
+            console.error('Error replacing legend text:', error);
+        }
+    };
 
-    // Function to apply custom text to elements
-    function applyCustomText(config) {
-        Object.entries(config).forEach(([selector, text]) => {
-            const input = document.querySelector(selector);
-            if (input) {
-                input.value = text;
+    // Function to apply custom text to elements - v2 optimized
+    const applyCustomText = config => {
+        try {
+            for (const [selector, text] of Object.entries(config)) {
+                document.querySelector(selector)?.setAttribute('value', text);
             }
-        });
-    }
+        } catch (error) {
+            console.error('Error applying custom text:', error);
+        }
+    };
 
-    // Function to apply custom text to <optgroup> label's (category/group names on tracker page)
-    function updateOptGroupLabels() {
-        const optGroups = document.querySelectorAll('optgroup');
-        optGroups.forEach(optGroup => {
-            const oldLabel = optGroup.label; // Add NBSP before the current label
-            if (replacementOptGroupLabels.hasOwnProperty(oldLabel)) {
-                optGroup.label = '\u00A0' + replacementOptGroupLabels[oldLabel];
-            }
-        });
-    }
+    // Function to change opgroup text - v2 optimized
+    const updateOptGroupLabels = () => {
+        try {
+            const optGroups = [...document.getElementsByTagName('optgroup')];
+            const nbsp = '\u00A0';
+
+            optGroups.forEach(group => {
+                const newLabel = replacementOptGroupLabels[group.label];
+                if (newLabel) group.label = nbsp + newLabel;
+            });
+        } catch (error) {
+            console.error('Error updating optgroup labels:', error);
+        }
+    };
 
     if (isAdBlockingEnabled) {
         injectStyles(hideElementsConfig);
@@ -1746,8 +1751,10 @@
     };
 
     if (isTranslateEnabled) {
-        document.body.childNodes.forEach(replaceText);
-    };
+        for (const child of document.body.childNodes) {
+            replaceText(child);
+        }
+    }
 
     window.addEventListener("load", () => {
         if (isTranslateEnabled) {
@@ -1760,7 +1767,6 @@
             }
 
             replaceLegendText(legendConfig);
-
             applyCustomText(inputConfig);
         }
 
@@ -1827,10 +1833,6 @@
                     location.reload();
                 });
             }
-
-//    const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
-//    const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
-//    const isHideLogoEnabled = localStorage.getItem('hideLogoEnabled') === 'true' || localStorage.getItem('hideLogoEnabled') === null;
 
             // Hide Logo checkbox
             const hideLogoCheckbox = document.getElementById('hideLogoCheckbox');
