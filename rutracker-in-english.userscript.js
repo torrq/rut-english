@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.40
+// @version      1.41
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,8 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'В вашем браузере должны быть вкл.чены куки и JavaScript': 'Cookies & JavaScript must be enabled in your browser.',
+        'Введите ваше имя и пароль': 'Enter your name & password',
         'Пользователь с таким именем уже существует': 'A user with this name already exists',
         'Выберите страну': 'Select country',
         'показать пароль': 'show password',
@@ -1079,6 +1081,7 @@
         'На редких': 'On rare',
     };
     const replacementWords = { // Single words
+        'Выход': 'Exit',
         'Засекречен': 'Classified',
         'Беларусь': 'Belarus',
         'подтверждения': 'confirmations',
@@ -1598,6 +1601,7 @@
         'input#top-login-btn': 'login',
         'input[value="Я согласен с этими правилами"]': 'I agree with these rules',
         'input#reg-confirm-agreement': 'I agree to the terms',
+        'input[value="Вход"]': 'Login',
     };
 
     // Config for inputs to change placeholder text
@@ -1824,28 +1828,41 @@
             applyCustomText(inputConfig);
         }
 
+        function addToMainNav(content, isHTML = false) {
+            const ul = document.querySelector('#main-nav ul.floatL');
+            if (ul) {
+                const li = document.createElement('li');
+                if (isHTML) {
+                    li.innerHTML = content;
+                } else {
+                    li.textContent = content;
+                }
+                ul.appendChild(li);
+            }
+        }
+
         const createDropdownMenu = () => {
             const menuConfig = {
-                title: `RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}`,
+                title: 'RuT in English ' + (GM_info.script.version ? 'v' + GM_info.script.version : ''),
                 settings: [{
-                        id: 'adBlockingCheckbox',
-                        key: 'adBlocking',
-                        label: 'Ad Blocking',
-                        checked: settings.adBlocking
-                    },
-                    {
-                        id: 'translateCheckbox',
-                        key: 'translate',
-                        label: 'Translation',
-                        checked: settings.translate
-                    },
-                    {
-                        id: 'hideLogoCheckbox',
-                        key: 'hideLogo',
-                        label: 'Hide Logo',
-                        checked: settings.hideLogo
-                    }
-                ],
+                    id: 'adBlockingCheckbox',
+                    key: 'adBlocking',
+                    label: 'Ad Blocking',
+                    checked: settings.adBlocking
+                },
+                           {
+                               id: 'translateCheckbox',
+                               key: 'translate',
+                               label: 'Translation',
+                               checked: settings.translate
+                           },
+                           {
+                               id: 'hideLogoCheckbox',
+                               key: 'hideLogo',
+                               label: 'Hide Logo',
+                               checked: settings.hideLogo
+                           }
+                          ],
                 links: [{
                     icon: '🔗',
                     text: 'GitHub',
@@ -1854,44 +1871,30 @@
             };
 
             const createSettingsHtml = () => menuConfig.settings
-                .map(({
-                    id,
-                    label,
-                    checked
-                }) => `
-            <label>
-                <input type="checkbox" id="${id}" ${checked ? 'checked' : ''}>
-                ${label}
-            </label>
-        `).join('');
+            .map(({id, label, checked}) =>
+                 '<label>' +
+                 '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + '>' +
+                 ' ' + label +
+                 '</label>'
+                ).join('');
 
             const createLinksHtml = () => menuConfig.links
-                .map(({
-                    icon,
-                    text,
-                    url
-                }) => `
-            <div class="dropdown-link">${icon} <a href="${url}" target="_blank">${text}</a></div>
-        `).join('');
+            .map(({icon, text, url}) =>
+                 '<div class="dropdown-link">' + icon + ' <a href="' + url + '" target="_blank">' + text + '</a></div>'
+                ).join('');
 
-            const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
-            if (!lastW50Td) return;
+            const dropdownHtml =
+                  '<div class="dropdown">' +
+                  '<button class="dropdown-btn">' + menuConfig.title + '</button>' +
+                  '<div class="dropdown-content">' +
+                  '<div class="dropdown-header">Settings</div>' +
+                  createSettingsHtml() +
+                  '<div class="dropdown-header">Links</div>' +
+                  createLinksHtml() +
+                  '</div>' +
+                  '</div>';
 
-            const newTd = document.createElement('td');
-            newTd.innerHTML = `
-        <div class="dropdown">
-            <button class="dropdown-btn">${menuConfig.title}</button>
-            <div class="dropdown-content">
-                <div class="dropdown-header">Settings</div>
-                ${createSettingsHtml()}
-                <div class="dropdown-header">Links</div>
-                ${createLinksHtml()}
-            </div>
-        </div>
-    `;
-
-            const row = lastW50Td.closest('tr');
-            row.insertBefore(newTd, row.firstElementChild);
+            addToMainNav(dropdownHtml, true);
 
             // Set up checkbox handlers
             menuConfig.settings.forEach(({
