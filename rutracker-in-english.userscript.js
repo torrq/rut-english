@@ -1845,24 +1845,24 @@
             const menuConfig = {
                 title: 'RuT in English ' + (GM_info.script.version ? 'v' + GM_info.script.version : ''),
                 settings: [{
-                    id: 'adBlockingCheckbox',
-                    key: 'adBlocking',
-                    label: 'Ad Blocking',
-                    checked: settings.adBlocking
-                },
-                           {
-                               id: 'translateCheckbox',
-                               key: 'translate',
-                               label: 'Translation',
-                               checked: settings.translate
-                           },
-                           {
-                               id: 'hideLogoCheckbox',
-                               key: 'hideLogo',
-                               label: 'Hide Logo',
-                               checked: settings.hideLogo
-                           }
-                          ],
+                        id: 'adBlockingCheckbox',
+                        key: 'adBlocking',
+                        label: 'Ad Blocking',
+                        checked: settings.adBlocking
+                    },
+                    {
+                        id: 'translateCheckbox',
+                        key: 'translate',
+                        label: 'Translation',
+                        checked: settings.translate
+                    },
+                    {
+                        id: 'hideLogoCheckbox',
+                        key: 'hideLogo',
+                        label: 'Hide Logo',
+                        checked: settings.hideLogo
+                    }
+                ],
                 links: [{
                     icon: '🔗',
                     text: 'GitHub',
@@ -1871,28 +1871,36 @@
             };
 
             const createSettingsHtml = () => menuConfig.settings
-            .map(({id, label, checked}) =>
-                 '<label>' +
-                 '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + '>' +
-                 ' ' + label +
-                 '</label>'
+                .map(({
+                        id,
+                        label,
+                        checked
+                    }) =>
+                    '<label>' +
+                    '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + '>' +
+                    ' ' + label +
+                    '</label>'
                 ).join('');
 
             const createLinksHtml = () => menuConfig.links
-            .map(({icon, text, url}) =>
-                 '<div class="dropdown-link">' + icon + ' <a href="' + url + '" target="_blank">' + text + '</a></div>'
+                .map(({
+                        icon,
+                        text,
+                        url
+                    }) =>
+                    '<div class="dropdown-link">' + icon + ' <a href="' + url + '" target="_blank">' + text + '</a></div>'
                 ).join('');
 
             const dropdownHtml =
-                  '<div class="dropdown">' +
-                  '<button class="dropdown-btn">' + menuConfig.title + '</button>' +
-                  '<div class="dropdown-content">' +
-                  '<div class="dropdown-header">Settings</div>' +
-                  createSettingsHtml() +
-                  '<div class="dropdown-header">Links</div>' +
-                  createLinksHtml() +
-                  '</div>' +
-                  '</div>';
+                '<div class="dropdown">' +
+                '<button class="dropdown-btn">' + menuConfig.title + '</button>' +
+                '<div class="dropdown-content">' +
+                '<div class="dropdown-header">Settings</div>' +
+                createSettingsHtml() +
+                '<div class="dropdown-header">Links</div>' +
+                createLinksHtml() +
+                '</div>' +
+                '</div>';
 
             addToMainNav(dropdownHtml, true);
 
