@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.39
+// @version      1.40
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,27 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Пользователь с таким именем уже существует': 'A user with this name already exists',
+        'Выберите страну': 'Select country',
+        'показать пароль': 'show password',
+        'Условия регистрации': 'Registration conditions',
+        'Забыли имя или пароль': 'Forgot your username or password',
+        'Статистика отданного': 'Statistics given',
+        'Ничего не было изменено': 'Nothing has been changed',
+        'Вернуться на главную страницу': 'Return to the main page',
+        'Вернуться к редактированию': 'Return to editing',
+        'Перейти к просмотру профиля': 'Go to profile view',
+        'Профиль был успешно изменён': 'The profile has been successfully modified.',
+        'при скачивании торрент-файла на странице раздачи': 'when downloading a torrent file from a distribution page',
+        'Для отключения автоудаления из списка удерживайте клавишу': 'To disable auto-deletion from the list, hold down the key',
+        'Срок хранения': 'Shelf life',
+        'Новые ответы в начатых темах не найдены': 'No new replies found in started topics',
+        'Вернуться на страницу поиска': 'Return to search page',
+        'Подходящих тем или сообщений не найдено': 'No matching topics or posts found',
+        'У вас нет избранных тем': 'You have no favorite topics',
+        'У вас нет будущих закачек': 'You have no future downloads',
+        'Удалить из списка': 'Remove from list',
+        'Для удаления тем из списка нажмите на иконку слева от названия любого раздела': 'To remove topics from the list, click on the icon to the left of the title of any section',
         'Просмотр пока недоступен': 'Viewing is not available yet',
         'Раздача ожидает проверки модератором': 'Distribution is awaiting moderator approval',
         'Вы уже оставляли спасибо в этой теме': 'You have already left thanks in this thread',
@@ -1055,8 +1076,21 @@
         'Открыть непрочитанные': 'Open unread',
         'только новые сообщения': 'only new messages',
         'только новые темы': 'only new topics',
+        'На редких': 'On rare',
     };
     const replacementWords = { // Single words
+        'Засекречен': 'Classified',
+        'Беларусь': 'Belarus',
+        'подтверждения': 'confirmations',
+        'Пароль': 'Password',
+        'Регистрация': 'Registration',
+        'Вход': 'Login',
+        'Сидируемые': 'Seeded',
+        'Сегодня': 'Today',
+        'Вчера': 'Yesterday',
+        'Всего': 'Total',
+        'Отдано': 'Given away',
+        'Редактировать': 'Edit',
         'Создан': 'Created',
         'Компьютерные': 'Computer',
         'Ушу': 'Wushu',
@@ -1143,6 +1177,7 @@
         'Разрегистрированные': 'Unregistered',
         'Дополнительно:': 'Additionally:',
         'Мужской': 'Male',
+        'Женский': 'Female',
         'Пол:': 'Gender:',
         'Откуда:': 'Location:',
         'Сообщения': 'Messages',
@@ -1298,9 +1333,10 @@
         'Книги': 'Books',
         'Оперетта': 'Operetta',
         'Грайндхаус': 'Grindhouse',
+        'Раздача': 'Distribution',
+        'Раздачи': 'Distribution',
         'раздачи': 'distributions',
         'раздач': 'distribution',
-        'Раздачи': 'Distribution',
         'Раздач': 'Distribution',
         'Администрация': 'Administration',
         'Модераторы': 'Moderators',
@@ -1352,6 +1388,7 @@
         'Автор': 'Author',
         'Исполнители': 'Performers',
         'Размер': 'Size',
+        'Добавлено': 'Added',
         'Добавлен': 'Added',
         'Форум': 'Forum',
         'Конкурсы': 'Competitions',
@@ -1555,6 +1592,12 @@
         'input[value="Удалить все (очистить папку)"]': 'Delete all (clear folder)',
         'input[value="Удалить отмеченное"]': 'Remove marked',
         'input[value="Поиск"]': 'Search',
+        'input#del-from-ut-button': 'Remove selected topics from the list',
+        'input#fdl-delete-selected': 'Remove selection from list',
+        'div#top-login-box input[type="submit"]': 'search',
+        'input#top-login-btn': 'login',
+        'input[value="Я согласен с этими правилами"]': 'I agree with these rules',
+        'input#reg-confirm-agreement': 'I agree to the terms',
     };
 
     // Config for inputs to change placeholder text
@@ -1566,7 +1609,8 @@
     const legendConfig = {
         'Не показывать': 'Do not show',
         'Показывать': 'Show',
-        'Скрыть категории': 'Hide Categories'
+        'Скрыть категории': 'Hide Categories',
+        'Для продолжения регистрации Вы должны принять наше ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ': 'To continue registration you must accept our USER AGREEMENT',
     };
 
     const replacementOptGroupLabels = {
