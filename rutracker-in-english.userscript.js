@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.38
+// @version      1.39
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -1615,10 +1615,15 @@
         "https://robinbob.in/images/promo_blue.png"
     ]);
 
+    const getLocalStorageWithDefault = (key, defaultValue = true) =>
+        localStorage.getItem(key) === 'false' ? false : defaultValue;
+
     // Toggles
-    const isAdBlockingEnabled = localStorage.getItem('adBlockingEnabled') === 'true' || localStorage.getItem('adBlockingEnabled') === null;
-    const isTranslateEnabled = localStorage.getItem('translateEnabled') === 'true' || localStorage.getItem('translateEnabled') === null;
-    const isHideLogoEnabled = localStorage.getItem('hideLogoEnabled') === 'true' || localStorage.getItem('hideLogoEnabled') === null;
+    const settings = {
+        adBlocking: getLocalStorageWithDefault('adBlockingEnabled'),
+        translate: getLocalStorageWithDefault('translateEnabled'),
+        hideLogo: getLocalStorageWithDefault('hideLogoEnabled')
+    };
 
     // Pre-compile RegExp objects
     const regexMap = new Map([
@@ -1640,8 +1645,7 @@
 
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             node.nodeValue = processText(node.nodeValue);
-        }
-        else if (node.nodeType === Node.ELEMENT_NODE) {
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
             if (node.hasAttribute('title')) {
                 node.setAttribute('title', processText(node.getAttribute('title')));
             }
@@ -1679,14 +1683,20 @@
     const replacePlaceholderText = (inputId, placeholderText) => document.getElementById(inputId)?.setAttribute('placeholder', placeholderText);
 
     window.addEventListener("load", () => {
-        if (!isTranslateEnabled) return;
+        if (!settings.translate) return;
         const updates = Object.entries(placeholderConfig)
-        .map(([id, text]) => ({
-            el: document.getElementById(id),
-            text
-        }))
-        .filter(({el}) => el);
-        for (const {el, text} of updates) {
+            .map(([id, text]) => ({
+                el: document.getElementById(id),
+                text
+            }))
+            .filter(({
+                el
+            }) => el);
+        for (const {
+                el,
+                text
+            }
+            of updates) {
             el.setAttribute('placeholder', text);
         }
     });
@@ -1702,7 +1712,7 @@
     const blockImages = sources => {
         const style = document.createElement("style");
         const selectors = [...sources].map(src =>
-                                           `img[src="${src}"]`).join(",");
+            `img[src="${src}"]`).join(",");
         style.textContent = `${selectors} { display: none !important; }`;
         document.head.appendChild(style);
     };
@@ -1745,19 +1755,19 @@
         }
     };
 
-    if (isAdBlockingEnabled) {
+    if (settings.adBlocking) {
         injectStyles(hideElementsConfig);
         blockImages(blockedImageSources);
     };
 
-    if (isTranslateEnabled) {
+    if (settings.translate) {
         for (const child of document.body.childNodes) {
             replaceText(child);
         }
     }
 
     window.addEventListener("load", () => {
-        if (isTranslateEnabled) {
+        if (settings.translate) {
             Object.entries(inputConfig).forEach(([inputId, customText]) => {
                 modifyInputAppearance(inputId, customText);
             });
@@ -1770,90 +1780,97 @@
             applyCustomText(inputConfig);
         }
 
-        const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
+        const createDropdownMenu = () => {
+            const menuConfig = {
+                title: `RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}`,
+                settings: [{
+                        id: 'adBlockingCheckbox',
+                        key: 'adBlocking',
+                        label: 'Ad Blocking',
+                        checked: settings.adBlocking
+                    },
+                    {
+                        id: 'translateCheckbox',
+                        key: 'translate',
+                        label: 'Translation',
+                        checked: settings.translate
+                    },
+                    {
+                        id: 'hideLogoCheckbox',
+                        key: 'hideLogo',
+                        label: 'Hide Logo',
+                        checked: settings.hideLogo
+                    }
+                ],
+                links: [{
+                    icon: '🔗',
+                    text: 'GitHub',
+                    url: 'https://github.com/torrq/rut-english'
+                }]
+            };
 
-        if (lastW50Td) {
-            lastW50Td.style.width = '40%'; // Reduce width for the new td
+            const createSettingsHtml = () => menuConfig.settings
+                .map(({
+                    id,
+                    label,
+                    checked
+                }) => `
+            <label>
+                <input type="checkbox" id="${id}" ${checked ? 'checked' : ''}>
+                ${label}
+            </label>
+        `).join('');
 
-            // Create the new td for dropdown menu
+            const createLinksHtml = () => menuConfig.links
+                .map(({
+                    icon,
+                    text,
+                    url
+                }) => `
+            <div class="dropdown-link">${icon} <a href="${url}" target="_blank">${text}</a></div>
+        `).join('');
+
+            const lastW50Td = document.querySelector('div.topmenu table tbody tr td.w50');
+            if (!lastW50Td) return;
+
             const newTd = document.createElement('td');
             newTd.innerHTML = `
-            <div class="dropdown">
-                <button class="dropdown-btn">RuT in English ${GM_info.script.version ? 'v' + GM_info.script.version : ''}</button>
-                <div class="dropdown-content">
-                    <div class="dropdown-header">Settings</a></div>
-                    <label>
-                        <input type="checkbox" id="adBlockingCheckbox" ${isAdBlockingEnabled ? 'checked' : ''}>
-                        Ad Blocking
-                    </label>
-                    <label>
-                        <input type="checkbox" id="translateCheckbox" ${isTranslateEnabled ? 'checked' : ''}>
-                        Translation
-                    </label>
-                    <label>
-                        <input type="checkbox" id="hideLogoCheckbox" ${isHideLogoEnabled ? 'checked' : ''}>
-                        Hide Logo
-                    </label>
-                    <div class="dropdown-header">Links</a></div>
-                   <div class="dropdown-link">🔗 <a href="https://github.com/torrq/rut-english" target="_blank">GitHub</a></div>
-                </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">${menuConfig.title}</button>
+            <div class="dropdown-content">
+                <div class="dropdown-header">Settings</div>
+                ${createSettingsHtml()}
+                <div class="dropdown-header">Links</div>
+                ${createLinksHtml()}
             </div>
-        `;
+        </div>
+    `;
 
             const row = lastW50Td.closest('tr');
-            const firstTd = row.querySelector('td');
-            row.insertBefore(newTd, firstTd);
+            row.insertBefore(newTd, row.firstElementChild);
 
-            // Ad Blocking checkbox
-            const adBlockingCheckbox = document.getElementById('adBlockingCheckbox');
-            if (adBlockingCheckbox) {
-                adBlockingCheckbox.addEventListener('change', function() {
-                    const adBlockingisChecked = adBlockingCheckbox.checked;
-                    localStorage.setItem('adBlockingEnabled', adBlockingisChecked.toString());
-                    if (adBlockingisChecked) {
-                        console.log("Ad Blocking is now enabled");
-                    } else {
-                        console.log("Ad Blocking is now disabled");
-                    }
+            // Set up checkbox handlers
+            menuConfig.settings.forEach(({
+                id,
+                key,
+                label
+            }) => {
+                const checkbox = document.getElementById(id);
+                if (!checkbox) return;
+
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`${key}Enabled`, checkbox.checked);
+                    console.log(`${label} is now ${checkbox.checked ? 'enabled' : 'disabled'}`);
                     location.reload();
                 });
-            }
+            });
+        };
 
-            // Translation checkbox
-            const translateCheckbox = document.getElementById('translateCheckbox');
-            if (translateCheckbox) {
-                translateCheckbox.addEventListener('change', function() {
-                    const translateisChecked = translateCheckbox.checked;
-                    localStorage.setItem('translateEnabled', translateisChecked.toString());
-                    if (translateisChecked) {
-                        console.log("Translation is now enabled");
-                    } else {
-                        console.log("Translation is now disabled");
-                    }
-                    location.reload();
-                });
-            }
-
-            // Hide Logo checkbox
-            const hideLogoCheckbox = document.getElementById('hideLogoCheckbox');
-            if (hideLogoCheckbox) {
-                hideLogoCheckbox.addEventListener('change', function() {
-                    const hideLogoisChecked = hideLogoCheckbox.checked;
-                    localStorage.setItem('hideLogoEnabled', hideLogoisChecked.toString());
-                    if (hideLogoisChecked) {
-                        console.log("Hide Logo is now enabled");
-                    } else {
-                        console.log("Hide Logo is now disabled");
-                    }
-                    location.reload();
-                });
-            }
-
-        }
+        createDropdownMenu();
 
     });
 
-let styles = `
+    let styles = `
 .dropdown {
     position: relative;
     display: inline-block;
@@ -1908,7 +1925,7 @@ input[type="checkbox"] {
 }
 `;
 
-    if(isHideLogoEnabled) {
+    if (settings.hideLogo) {
         styles += `
 div#logo {
     display: none !important;
@@ -1916,7 +1933,7 @@ div#logo {
 `;
     };
 
-// Apply the styles using GM_addStyle
-GM_addStyle(styles);
+    // Apply the styles using GM_addStyle
+    GM_addStyle(styles);
 
 })();
