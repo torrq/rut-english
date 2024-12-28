@@ -3,7 +3,7 @@ RuTracker translated into English.
 
 ## Installation
 
-1. Make sure you have script enabled in your browser (these instructions refer to the latest versions of the browser):
+1. This script requires a userscript manager. Here's a few suggestions:
 
 	* [Tampermonkey](https://www.tampermonkey.net/) (proprietary)
 	* [Violentmonkey](https://violentmonkey.github.io/get-it/)
