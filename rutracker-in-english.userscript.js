@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.46
+// @version      1.47
 // @description  English translations for RuTracker
 // @author       torrq
 // @match        *://rutracker.org/*
@@ -1892,13 +1892,51 @@
     };
 
     if (settings.translate) {
-        // Process the title in <head> first
-        if (document.head && document.head.querySelector('title')) {
-            replaceText(document.head.querySelector('title'));
+        // Define processText function once
+        const processText = text => {
+            let result = text;
+            for (const [regex, replace] of regexMap) {
+                result = result.replace(regex, replace);
+            }
+            return result;
+        };
+
+        // Process title directly without traversing head
+        const titleElement = document.querySelector('title');
+        if (titleElement) {
+            titleElement.textContent = processText(titleElement.textContent);
         }
-        for (const child of document.body.childNodes) {
-            replaceText(child);
+
+        // Process body, skipping elements that won't need translation
+        const skipTags = new Set(['SCRIPT', 'STYLE', 'CODE', 'PRE', 'IFRAME']);
+
+        function fastReplaceText(node) {
+            // Skip if node is empty or is in skipTags
+            if (!node || (node.nodeType === Node.ELEMENT_NODE && skipTags.has(node.tagName))) {
+                return;
+            }
+
+            // Process text nodes that aren't empty
+            if (node.nodeType === Node.TEXT_NODE) {
+                if (node.nodeValue.trim()) {
+                    node.nodeValue = processText(node.nodeValue);
+                }
+                return;
+            }
+
+            // Handle title attribute if present (only for Element nodes)
+            if (node.nodeType === Node.ELEMENT_NODE && node.hasAttribute('title')) {
+                node.setAttribute('title', processText(node.getAttribute('title')));
+            }
+
+            // Process children
+            const children = node.childNodes;
+            for (let i = 0; i < children.length; i++) {
+                fastReplaceText(children[i]);
+            }
         }
+
+        fastReplaceText(document.body);
     }
 
     window.addEventListener("load", () => {
