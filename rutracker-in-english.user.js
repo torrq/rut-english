@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.44
+// @version      1.45
 // @description  English translations for RuTracker
-// @author       Nathan
+// @author       torrq
 // @match        *://rutracker.org/*
 // @match        *://rutracker.nl/*
 // @match        *://rutracker.net/*
@@ -13,6 +13,7 @@
 // @updateURL    https://github.com/torrq/rut-english/raw/main/rutracker-in-english.user.js
 // @downloadURL  https://github.com/torrq/rut-english/raw/main/rutracker-in-english.user.js
 // @supportURL   https://github.com/torrq/rut-english/issues
+// @icon         https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/resources/logo_256.png
 // ==/UserScript==
 
 (function() {
