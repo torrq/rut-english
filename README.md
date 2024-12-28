@@ -1,20 +1,43 @@
-# RuTracker in English
-RuTracker translated into English.
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div>
+    <h1>RuTracker in English</h1>
+    <p>Greasemonkey userscript to translate RuTracker into English.</p>
+  </div>
+  <div>
+    <img src="https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/resources/logo_256.png" alt="Logo" style="max-width: 120px; height: auto;">
+  </div>
+</div>
+
+---
 
 ## Installation
 
-1. This script requires a userscript manager. Here's a few suggestions:
+### Prerequisites
 
-	* [Tampermonkey](https://www.tampermonkey.net/) *(Firefox/Chrome/Edge/Opera/Safari, proprietary)*
-	* [Violentmonkey](https://violentmonkey.github.io/get-it/) *(Firefox/Chrome/Edge, MIT license)*
-	* [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/) *(Firefox, MIT License)*
+To use this script, you need a userscript manager. Below are some recommended options:
+
+- **[Violentmonkey](https://violentmonkey.github.io/get-it/):** Compatible with Firefox, Chrome, and Edge (MIT License).
+- **[Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/):** Compatible with Firefox (MIT License).
+- **[Tampermonkey](https://www.tampermonkey.net/):** Compatible with Firefox, Chrome, Edge, Opera, and Safari (Proprietary).
   
-2. Add [rutracker-in-english.user.js](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js) to your userscript manager, either manually or by [link](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js).
-   
+### Adding the Script
+
+Add **[rutracker-in-english.user.js](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js)** to your userscript manager. You can do this:
+
+1. **Manually** by copying the script into your manager.
+2. **By link**: Use this [direct link](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js).
+
+---
+
 ## Updating
 
-This script is set up to automatically update. You can check for updates from within the Greasemonkey or Tampermonkey menu, or click on the install link again to get the update.
+The script is configured for automatic updates. To ensure you have the latest version:
+
+- Use the update function in your userscript manager (e.g., Tampermonkey or Greasemonkey).
+- Alternatively, click the install link again to get the updated version.
+
+---
 
 ## Issues
 
-Please report any issues within this repository's [issue section](https://github.com/torrq/rut-english/issues). 
+If you encounter any issues, please report them in this repository's [issue section](https://github.com/torrq/rut-english/issues).
