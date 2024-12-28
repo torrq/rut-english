@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.41
+// @version      1.42
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
