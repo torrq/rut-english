@@ -6,8 +6,8 @@ RuTracker translated into English.
 1. This script requires a userscript manager. Here's a few suggestions:
 
 	* [Tampermonkey](https://www.tampermonkey.net/) (proprietary)
-	* [Violentmonkey](https://violentmonkey.github.io/get-it/)
-	* [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/) (some scripts are **not compatible with Greasemonkey 4**!)
+	* [Violentmonkey](https://violentmonkey.github.io/get-it/) (MIT license)
+	* [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/) (MIT License)
 
 ## Updating
 
