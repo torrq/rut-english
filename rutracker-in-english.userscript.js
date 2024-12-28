@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.44
+// @version      1.46
 // @description  English translations for RuTracker
-// @author       Nathan
+// @author       torrq
 // @match        *://rutracker.org/*
 // @match        *://rutracker.nl/*
 // @match        *://rutracker.net/*
@@ -1775,7 +1775,9 @@
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             node.nodeValue = processText(node.nodeValue);
         } else if (node.nodeType === Node.ELEMENT_NODE) {
-            if (node.hasAttribute('title')) {
+            if (node.tagName === 'TITLE') { // Explicitly handle <title> elements
+                node.textContent = processText(node.textContent);
+            } else if (node.hasAttribute('title')) {
                 node.setAttribute('title', processText(node.getAttribute('title')));
             }
             for (const child of node.childNodes) {
@@ -1890,6 +1892,10 @@
     };
 
     if (settings.translate) {
+        // Process the title in <head> first
+        if (document.head && document.head.querySelector('title')) {
+            replaceText(document.head.querySelector('title'));
+        }
         for (const child of document.body.childNodes) {
             replaceText(child);
         }

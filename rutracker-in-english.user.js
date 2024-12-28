@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.45
+// @version      1.46
 // @description  English translations for RuTracker
 // @author       torrq
 // @match        *://rutracker.org/*
@@ -13,7 +13,6 @@
 // @updateURL    https://github.com/torrq/rut-english/raw/main/rutracker-in-english.user.js
 // @downloadURL  https://github.com/torrq/rut-english/raw/main/rutracker-in-english.user.js
 // @supportURL   https://github.com/torrq/rut-english/issues
-// @icon         https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/resources/logo_256.png
 // ==/UserScript==
 
 (function() {
@@ -1776,7 +1775,9 @@
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()) {
             node.nodeValue = processText(node.nodeValue);
         } else if (node.nodeType === Node.ELEMENT_NODE) {
-            if (node.hasAttribute('title')) {
+            if (node.tagName === 'TITLE') { // Explicitly handle <title> elements
+                node.textContent = processText(node.textContent);
+            } else if (node.hasAttribute('title')) {
                 node.setAttribute('title', processText(node.getAttribute('title')));
             }
             for (const child of node.childNodes) {
@@ -1891,6 +1892,10 @@
     };
 
     if (settings.translate) {
+        // Process the title in <head> first
+        if (document.head && document.head.querySelector('title')) {
+            replaceText(document.head.querySelector('title'));
+        }
         for (const child of document.body.childNodes) {
             replaceText(child);
         }
