@@ -8,7 +8,9 @@ RuTracker translated into English.
 	* [Tampermonkey](https://www.tampermonkey.net/) *(Firefox/Chrome/Edge/Opera/Safari, proprietary)*
 	* [Violentmonkey](https://violentmonkey.github.io/get-it/) *(Firefox/Chrome/Edge, MIT license)*
 	* [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/) *(Firefox, MIT License)*
-
+  
+2. Add **rutracker-in-english.userscript.js** to your userscript manager.
+   
 ## Updating
 
 This script is set up to automatically update. You can check for updates from within the Greasemonkey or Tampermonkey menu, or click on the install link again to get the update.
