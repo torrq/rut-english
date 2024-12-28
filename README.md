@@ -1,4 +1,4 @@
-# RuT in English
+# RuTracker in English
 RuTracker translated into English.
 
 ## Installation
