@@ -9,7 +9,7 @@ RuTracker translated into English.
 	* [Violentmonkey](https://violentmonkey.github.io/get-it/) *(Firefox/Chrome/Edge, MIT license)*
 	* [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/) *(Firefox, MIT License)*
   
-2. Add [rutracker-in-english.userscript.js](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js) to your userscript manager, either manually or by [link](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js).
+2. Add [rutracker-in-english.user.js](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js) to your userscript manager, either manually or by [link](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/rutracker-in-english.user.js).
    
 ## Updating
 
