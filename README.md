@@ -1,3 +1,5 @@
+![Logo](https://raw.githubusercontent.com/torrq/rut-english/refs/heads/main/resources/logo_256.png)
+
 # RuTracker in English
 RuTracker translated into English.
 
