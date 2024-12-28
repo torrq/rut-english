@@ -16,9 +16,9 @@
 
 To use this script, you need a userscript manager. Below are some recommended options:
 
-- **[Tampermonkey](https://www.tampermonkey.net/):** Compatible with Firefox, Chrome, Edge, Opera, and Safari (Proprietary).
 - **[Violentmonkey](https://violentmonkey.github.io/get-it/):** Compatible with Firefox, Chrome, and Edge (MIT License).
 - **[Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/):** Compatible with Firefox (MIT License).
+- **[Tampermonkey](https://www.tampermonkey.net/):** Compatible with Firefox, Chrome, Edge, Opera, and Safari (Proprietary).
   
 ### Adding the Script
 
