@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.42
+// @version      1.43
 // @description  English translations for RuTracker
 // @author       Nathan
 // @match        *://rutracker.org/*
@@ -20,6 +20,15 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Вернуться в тему': 'Back to topic',
+        'Вернуться в форум': 'Return to forum',
+        'IP не найден': 'IP not found',
+        'Проверить ваш IP на этой раздаче': 'Check your IP on this distribution',
+        'Мой IP': 'My IP',
+        'Полный источник': 'Full source',
+        'был сегодня': 'was today',
+        'Выберите форум для перехода': 'Select a forum to navigate to',
+        'Видеоуроки по ремонту транспортных средств': 'Video tutorials on vehicle repair',
         'В вашем браузере должны быть вкл.чены куки и JavaScript': 'Cookies & JavaScript must be enabled in your browser.',
         'Введите ваше имя и пароль': 'Enter your name & password',
         'Пользователь с таким именем уже существует': 'A user with this name already exists',
@@ -1079,8 +1088,15 @@
         'только новые сообщения': 'only new messages',
         'только новые темы': 'only new topics',
         'На редких': 'On rare',
+        'часов назад': 'hours ago',
     };
     const replacementWords = { // Single words
+        'Пиры': 'Peers',
+        'Исполнитель': 'Performer',
+        'Дирижер': 'Conductor',
+        'Композитор': 'Composer',
+        'Оркестр': 'Orchestra',
+        'Цитировать': 'Quote',
         'Выход': 'Exit',
         'Засекречен': 'Classified',
         'Беларусь': 'Belarus',
@@ -1554,7 +1570,13 @@
         'НГ]': 'NG]',
         'нет': 'none',
         'От': 'From',
+        'спустя': 'after',
         'год': 'year',
+        'день': 'day',
+        'часов': 'hours',
+        'часа': 'hours',
+        'час': 'hour',
+        'мин': 'min',
         /* Abbreviated Months */
         'Янв': 'Jan',
         'Фев': 'Feb',
