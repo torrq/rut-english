@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.47
+// @version      1.48
 // @description  English translations for RuTracker
 // @author       torrq
 // @match        *://rutracker.org/*
@@ -20,6 +20,19 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Параметры запроса': 'Request parameters',
+        'Поиск по автору': 'Search by author',
+        'Недостаточно параметров для поиска': 'Not enough parameters to search',
+        'Поиск только по трекеру': 'Search by tracker only',
+        'Как пользоваться поиском': 'How to use search',
+        'Новые с последнего посещения': 'New since last visit',
+        'Показывать результаты как': 'Show results as',
+        'Наличие сканов в содержимом раздачи': 'Availability of scans in the distribution content',
+        'Наличие сканов': 'Availability of scans',
+        'Год выпуска фильма': 'Year of release of the film',
+        'Год выпуска диска': 'Year of disc release',
+        'Страна-производитель фильма': 'Country of origin of the film',
+        'Страна-производитель диска': 'Country of manufacture of the disc',
         'Устранение щелчков и треска': 'Eliminating clicks & pops',
         'переизданная японцами': 'reissued by the Japanese',
         'Без обработки': 'Without processing',
@@ -595,8 +608,6 @@
         'переиздания диска': 'reissue of the disc',
         'Год editions': 'Year editions',
         'переeditions диска': 're-editions of the disc',
-        'Наличие сканов в содержимом раздачи': 'Availability of scans in the distribution content',
-        'Наличие сканов': 'Availability of scans',
         'Только обложка альбома': 'Only album cover',
         'Тип рипа': 'Type of rip',
         'Количество каналов': 'Number of channels',
@@ -1683,6 +1694,7 @@
         'input[value="Я согласен с этими правилами"]': 'I agree with these rules',
         'input#reg-confirm-agreement': 'I agree to the terms',
         'input[value="Вход"]': 'Login',
+        'input[value="  Поиск  "]': '  Search  ',
     };
 
     // Config for inputs to change placeholder text
@@ -1699,6 +1711,10 @@
     };
 
     const replacementOptGroupLabels = {
+        ' Приватные форумы': 'Private forums',
+        ' Вопросы по форуму и трекеру': 'Products, services, games & entertainment',
+        ' Товары, услуги, игры и развлечения': 'Products, services, games & entertainment',
+        ' ОБХОД БЛОКИРОВОК': 'BYPASSING BLOCKS',
         ' Новости': 'News',
         ' Кино, Видео и ТВ': 'Cinema, Video and TV',
         ' Сериалы': 'Series',
@@ -1757,6 +1773,7 @@
     // Pre-compile RegExp objects
     const regexMap = new Map([
         ...Object.entries(replacementPhrases),
+        ...Object.entries(replacementOptGroupLabels), // run OPTGROUP label translation on regular text too, as it's used in some places
         ...Object.entries(replacementWords)
     ].map(([search, replace]) => [
         new RegExp(search, 'g'),
@@ -1945,7 +1962,7 @@
                 modifyInputAppearance(inputId, customText);
             });
 
-            if (window.location.pathname === '/forum/tracker.php') {
+            if (window.location.pathname === '/forum/tracker.php' || window.location.pathname === '/forum/search.php') {
                 updateOptGroupLabels();
             }
 
