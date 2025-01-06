@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RuTracker in English
 // @namespace    https://github.com/torrq/
-// @version      1.48
+// @version      1.49
 // @description  English translations for RuTracker
 // @author       torrq
 // @match        *://rutracker.org/*
@@ -20,6 +20,12 @@
 
     // Array of replacements: {'original text': 'replacement text'}
     const replacementPhrases = { // Phrases
+        'Дополнительные смайлики': 'Additional emoticons',
+        'Редактировать сообщение': 'Edit message',
+        'Обновить время сообщения': 'Update message time',
+        'Сообщение было успешно отправлено': 'The message was sent successfully',
+        'Перейти к сообщению': 'Go to message',
+        'Сессия устарела': 'Session expired',
         'Параметры запроса': 'Request parameters',
         'Поиск по автору': 'Search by author',
         'Недостаточно параметров для поиска': 'Not enough parameters to search',
@@ -1133,11 +1139,14 @@
         'часов назад': 'hours ago',
     };
     const replacementWords = { // Single words
+        'Сообщение': 'Message',
+        'Изменить': 'Edit',
         'Великобритания': 'United Kingdom',
         'винила': 'vinyl',
         'Ручная': 'Manual',
         'спасибо': 'Thanks',
         'Графики': 'Charts',
+        'графики': 'charts',
         'Чистка': 'Cleaning',
         'свернуть': 'collapse',
         'Внимание': 'Attention',
@@ -1664,14 +1673,14 @@
 
     // Define input IDs and corresponding custom text
     const inputConfig = {
-        'search-submit': 'Search',
-        'tr-submit-btn': 'Search',
-        'thx-btn': 'Say "Thank You"',
-        'tor-filelist-btn': 'List of files',
-        'load-pic-btn': 'Upload image',
-        'p-ext-preview-btn': 'Advanced Editing',
-        'p-quick-preview-btn': 'Preview',
-        'post-submit-btn': 'Submit',
+        'input#search-submit': 'Search',
+        'input#tr-submit-btn': 'Search',
+        'input#thx-btn': 'Say "Thank You"',
+        'input#tor-filelist-btn': 'List of files',
+        'input#load-pic-btn': 'Upload image',
+        'input#p-ext-preview-btn': 'Advanced Editing',
+        'input#p-quick-preview-btn': 'Preview',
+        'input#post-submit-btn': 'Submit',
         'div#ped-editor input[name="codeQuote"]': 'Quote',
         'div#ped-editor input[name="codeImg"]': 'Image',
         'div#ped-editor input[name="codeUrl"]': 'URL',
